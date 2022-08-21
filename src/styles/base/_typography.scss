@@ -1,0 +1,151 @@
+$font-path-intro: '/fonts/intro';
+$font-path-source-sans: '/fonts/source-sans-pro';
+
+/*--< INTRO FONT --*/
+@font-face {
+    font-family: 'intro-regular';
+    src: local('Intro'), 
+         url('#{$font-path-intro}/intro.woff2') format('woff2'), 
+         url('#{$font-path-intro}/intro.woff') format('woff'), 
+         url('#{$font-path-intro}/intro.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*--> INTRO FONT --*/
+
+
+/*--< SOURCE SANS PRO --*/
+@font-face {
+    font-family: 'source-sans-pro-extra-light';
+    src: local('Source Sans Pro ExtraLight'), 
+         local('SourceSansPro-ExtraLight'), 
+         url('#{$font-path-source-sans}/sourcesansproextralight.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesansproextralight.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansproextralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-extra-light-italic';
+    src: local('Source Sans Pro ExtraLight Italic'), 
+         local('SourceSansPro-ExtraLightIt'), 
+         url('#{$font-path-source-sans}/sourcesansproextralightitalic.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesansproextralightitalic.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansproextralightitalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-light';
+    src: local('Source Sans Pro Light'), 
+         local('SourceSansPro-Light'), 
+         url('#{$font-path-source-sans}/sourcesansprolight.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesansprolight.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansprolight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-light-italic';
+    src: local('Source Sans Pro Light Italic'), 
+         local('SourceSansPro-LightIt'), 
+         url('#{$font-path-source-sans}/sourcesansprolightitalic.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesansprolightitalic.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansprolightitalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-regular';
+    src: local('Source Sans Pro'), 
+         local('SourceSansPro-Regular'), 
+         url('#{$font-path-source-sans}/sourcesanspro.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesanspro.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesanspro.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-italic';
+    src: local('Source Sans Pro Italic'), 
+         local('SourceSansPro-It'), 
+         url('#{$font-path-source-sans}/sourcesansproitalic.woff2') format('woff2'),
+         url('#{$font-path-source-sans}/sourcesansproitalic.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansproitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-semibold';
+    src: local('Source Sans Pro Semibold'), 
+         local('SourceSansPro-Semibold'), 
+         url('#{$font-path-source-sans}/sourcesansprosemibold.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesansprosemibold.woff') format('woff'),
+         url('#{$font-path-source-sans}/sourcesansprosemibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-semibold-italic';
+    src: local('Source Sans Pro Semibold Italic'), 
+         local('SourceSansPro-SemiboldIt'), 
+         url('#{$font-path-source-sans}/sourcesansprosemibolditalic.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesansprosemibolditalic.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansprosemibolditalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-bold';
+    src: local('Source Sans Pro Bold'), 
+         local('SourceSansPro-Bold'), 
+         url('#{$font-path-source-sans}/sourcesansprobold.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesansprobold.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansprobold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-bold-italic';
+    src: local('Source Sans Pro Bold Italic'), 
+         local('SourceSansPro-BoldIt'), 
+         url('#{$font-path-source-sans}/sourcesansprobolditalic.woff2') format('woff2'), 
+         url('#{$font-path-source-sans}/sourcesansprobolditalic.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansprobolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-black';
+    src: local('Source Sans Pro Black'),
+         local('SourceSansPro-Black'),
+         url('#{$font-path-source-sans}/sourcesansproblack.woff2') format('woff2'),
+         url('#{$font-path-source-sans}/sourcesansproblack.woff') format('woff'),
+         url('#{$font-path-source-sans}/sourcesansproblack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source-sans-pro-black-italic';
+    src: local('Source Sans Pro Black Italic'), 
+         local('SourceSansPro-BlackIt'), 
+         url('#{$font-path-source-sans}/sourcesansproblackitalic.woff2') format('woff2'),
+         url('#{$font-path-source-sans}/sourcesansproblackitalic.woff') format('woff'), 
+         url('#{$font-path-source-sans}/sourcesansproblackitalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/*--> SOURCE SANS PRO --*/
