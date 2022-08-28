@@ -4,17 +4,8 @@
 .header {
     @include flex-row(inherit, center);
     background: $black;
-    color: $gold;
+    color: $white;
     padding: 0 1.5em;
-}
-
-.logo-wrapper {
-    margin-right: 50px;
-
-    .logo-text {
-        font-family: $secondary-font;
-        color: $white;
-    }
 }
 
 .search-wrapper {

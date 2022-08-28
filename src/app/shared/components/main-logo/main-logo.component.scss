@@ -1,0 +1,11 @@
+@import '../../../../styles/base/variables';
+
+.logo-wrapper {
+    margin-right: 50px;
+
+    .logo-link-home {
+        color: $white;
+        font-family: $secondary-font;
+        text-decoration: none;
+    }
+}

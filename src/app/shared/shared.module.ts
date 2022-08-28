@@ -23,6 +23,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { SearchComponent } from './components/search/search.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import { MainLogoComponent } from './components/main-logo/main-logo.component';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
     MatMenuModule,
   ],
   declarations:[
+    MainLogoComponent,
     MainSliderComponent,
     ButtonComponent,
     PaginatorComponent,
@@ -54,6 +56,7 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
     PaginatorComponent,
     SearchComponent,
     UserMenuComponent,
+    MainLogoComponent
   ]
 })
 export class SharedModule { }
