@@ -1,0 +1,64 @@
+@import '../base/variables';
+@import '../utils/mixin';
+
+
+.search-wrapper {
+    .mat-form-field {
+        min-width: 350px;
+
+        &.mat-focused {
+            .mat-form-field-label {
+                color: $gold;
+            }
+        }
+    }
+
+    .mat-form-field-appearance-outline {
+        .mat-form-field-wrapper {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mat-form-field-outline {
+            color: rgba($gold, 1);
+        }
+    }
+
+    .mat-icon {
+        color: $gold;
+        cursor: pointer;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    .mat-form-field-label {
+        color: rgba($gold, 1);
+    }
+
+    .mat-input-element {
+        caret-color: $gold;
+        color: $white;
+
+        &::-webkit-input-placeholder {
+            /* Chrome/Opera/Safari */
+            color: rgba($gold, .4);
+        }
+
+        &::-moz-placeholder {
+            /* Firefox 19+ */
+            color: rgba($gold, .4);
+        }
+
+        &:-ms-input-placeholder {
+            /* IE 10+ */
+            color: rgba($gold, .4);
+        }
+
+        &:-moz-placeholder {
+            /* Firefox 18- */
+            color: rgba($gold, .4);
+        }
+    }
+}

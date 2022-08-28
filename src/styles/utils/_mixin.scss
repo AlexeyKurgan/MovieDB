@@ -42,6 +42,12 @@
 }
 
 // FLEXBOX TOOLKIT
+@mixin flex-row($j-content, $al-items) {
+    display: flex;
+    justify-content: $j-content;
+    align-items: $al-items;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;

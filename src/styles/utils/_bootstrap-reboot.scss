@@ -1,3 +1,5 @@
+@import '../base/variables';
+
 html {
     font-family: sans-serif;
     line-height: 1.15;
@@ -267,12 +269,12 @@ html {
   }
   
   body {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, $main-font;
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.5;
     color: #292b2c;
-    background-color: #fff;
+    background-color: $white;
   }
   
   [tabindex="-1"]:focus {

@@ -1,3 +1,25 @@
-<p>
-  header works!
-</p>
+<header class="header">
+  <div class="logo-wrapper">
+    <img class="logo-img" src="../../../images/Logo.svg" alt="MovieDB logo">
+    <span class="logo-text">MovieDB</span>
+  </div>
+
+  <div class="search-wrapper">
+    <app-search></app-search>
+  </div>
+
+  <div class="watchlist-wrapper">
+    <div class="watchlist-icons">
+      <i class="icon-bookmark"></i>
+      <i class="icon-plus"></i>
+    </div>
+    <span class="watchlist-label">watchlist</span>
+    <div class="watchlist-total">
+      <span>1</span>
+    </div>
+  </div>
+
+  <div class="user-menu-wrapper">
+    <app-user-menu></app-user-menu>
+  </div>
+</header>

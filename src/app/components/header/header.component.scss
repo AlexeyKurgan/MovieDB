@@ -1,0 +1,98 @@
+@import "../../../styles/base/variables";
+@import "../../../styles/utils/mixin";
+
+.header {
+    @include flex-row(inherit, center);
+    background: $black;
+    color: $gold;
+    padding: 0 1.5em;
+}
+
+.logo-wrapper {
+    margin-right: 50px;
+
+    .logo-text {
+        font-family: $secondary-font;
+        color: $white;
+    }
+}
+
+.search-wrapper {
+    margin-right: auto;
+}
+
+.watchlist-wrapper {
+    @include flex-row(inherit, center);
+    padding: 10px 15px;
+    @include border-radius(5px);
+    background-color: transparent;
+    transition: all .5s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba($light-black, 1);
+        transition: all .5s ease;
+
+        .icon-bookmark {
+            color: rgba($gold, 1);
+            transition: all .5s ease;
+        }
+
+        .icon-plus {
+            color: rgba($black, 1);
+            transition: all .5s ease;
+        }
+
+        .watchlist-total {
+            background: rgba($gold, 1);
+            color: rgba($black, 1);
+            transition: all .5s ease;
+        }
+    }
+
+    .watchlist-icons {
+        @include flex-row(center, center);
+        position: relative;
+    }
+
+    .icon-bookmark {
+        font-size: 1.25em;
+        color: rgba($gold, .7);
+        transition: all .5s ease;
+    }
+    
+    .icon-plus {
+        font-size: 9px;
+        position: absolute;
+        color: rgba($black, .7);
+        @include abs-position(50%, auto, auto, auto); // position absolute
+        transform: translateY(-74%);
+        transition: all .5s ease;
+    }
+
+    .watchlist-label {
+        margin: 0 10px;
+        color: $white;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    .watchlist-total {
+        @include box(22px, 22px); // width and height box
+        @include flex-row(center, center);
+        @include border-radius(50%);
+        background: rgba($gold, .7);
+        color: rgba($black, .7);
+        transition: all .5s ease;
+
+        span {
+            font-size: .875em;
+            font-weight: 500;
+        }
+    }
+}
+
+.user-menu-wrapper {
+    margin-left: 90px;
+    margin-right: 20px;
+}
