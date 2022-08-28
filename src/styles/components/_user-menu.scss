@@ -1,0 +1,102 @@
+@import "../base/variables";
+@import "..//utils/mixin";
+
+.user-menu-wrapper {
+    transition: all .5s ease;
+
+    .mat-menu-trigger {
+        @include flex-row(space-between, center);
+        
+        @include box-sizing(border-box);
+        border: 1px solid transparent;
+        padding: 9px 15px;
+        background: transparent;
+        color: $gold;
+        font-family: $main-font;
+        cursor: pointer;
+
+        &:focus,
+        &:focus-visible {
+            border: 1px solid $gold;
+            outline: 0;
+        }
+    }
+
+    .user-icon {
+        @include box(25px, 25px);
+        @include flex-row(center, center);
+        @include border-radius(50%);
+        background: rgba($gold, 1);
+        color: rgba($black, 1);
+    }
+
+    .icon-dropdown {
+        font-size: .375em;
+    }
+
+
+    .user-name {
+        color: $white;
+        margin: 0 10px;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    &:hover {
+        @include border-radius(5px);
+        background-color: $light-black;
+        transition: all .5s ease;
+    }
+}
+
+
+// styles options for menu
+.cdk-overlay-backdrop {
+
+    &.header-menu~.cdk-overlay-connected-position-bounding-box {
+        .mat-menu-panel {
+            min-width: 175px;
+            background: $light-black;
+        }
+
+        .mat-menu-item {
+            @include flex-row(space-between, center);
+            color: $white;
+            outline: none;
+            transition: all .5s ease;
+            padding-right: 8px;
+
+            i {
+                @include border-radius(50%);
+                padding: 6px;
+            }
+
+            &:hover {
+                background-color: rgba($white, .1);
+
+                span,
+                i {
+                    color: $gold;
+                    transition: all .5s ease;
+                }
+
+                i {
+                    @include flex-row(center, center);
+                    @include border-radius(50%);
+                    animation: shadow 1s ease infinite;
+
+                    @include keyframes(shadow) {
+                        0% {
+                            @include box-shadow(0 0 0 0 rgba($gold, .6));
+                        }
+
+                        100% {
+                            @include box-shadow(0 0 0 6px rgba($light-black, 0));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

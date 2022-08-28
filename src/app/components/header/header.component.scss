@@ -42,12 +42,6 @@
             color: rgba($black, 1);
             transition: all .5s ease;
         }
-
-        .watchlist-total {
-            background: rgba($gold, 1);
-            color: rgba($black, 1);
-            transition: all .5s ease;
-        }
     }
 
     .watchlist-icons {
@@ -56,7 +50,7 @@
     }
 
     .icon-bookmark {
-        font-size: 1.25em;
+        font-size: 1.4em;
         color: rgba($gold, .7);
         transition: all .5s ease;
     }
@@ -78,16 +72,18 @@
     }
 
     .watchlist-total {
-        @include box(22px, 22px); // width and height box
+        @include min-box(25px, 25px); // min-width and height box
+        @include max-box(auto, 25px); // max-width and height box
         @include flex-row(center, center);
+        padding: 5px;
         @include border-radius(50%);
-        background: rgba($gold, .7);
-        color: rgba($black, .7);
-        transition: all .5s ease;
+        background: rgba($gold, 1);
+        color: rgba($black, 1);
 
         span {
             font-size: .875em;
-            font-weight: 500;
+            // font-weight: 500;
+            font-family: $font-sans-black;
         }
     }
 }

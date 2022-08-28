@@ -5,6 +5,8 @@
 .search-wrapper {
     .mat-form-field {
         min-width: 350px;
+        font-family: $main-font;
+        font-size: .875em;
 
         &.mat-focused {
             .mat-form-field-label {

@@ -81,11 +81,24 @@
     background-position: center;
 }
 
-// BOX
+// WIDTH BOX
 @mixin box($width, $height: $width) {
     width: $width;
     height: $height;
 }
+
+// MIN WIDTH BOX
+@mixin min-box($width, $height: $width) {
+    min-width: $width;
+    min-height: $height;
+}
+
+// MAX WIDTH BOX
+@mixin max-box($width, $height: $width) {
+    max-width: $width;
+    max-height: $height;
+}
+
 
 // CENTER BLOCK
 @mixin center-block {
