@@ -11,5 +11,6 @@
 // Layout
 @import 'layout/layout';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Shared components
+@import '../styles/components/search';
+@import '../styles/components/user-menu';

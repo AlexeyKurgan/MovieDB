@@ -1,0 +1,112 @@
+@import "../../../styles/base/variables";
+@import "../../../styles/utils/mixin";
+
+.toggle-button {
+    @include box(20px, 20px);
+    @include position(absolute, 90px, 10px, auto, auto);
+    @include flex-row(center, center);
+    @include border-radius(50%);
+    background: $gold;
+    border: 1px solid;
+    border-color: $gold;
+    padding-left: 2px;
+    cursor: pointer;
+    transition: all .2s ease-in;
+
+    .icon-arrow_forward_ios {
+        font-size: 13px;
+        color: $black;
+    }
+
+    &:hover {
+        transition: all .2s ease-in;
+        background-color: rgba($white, .1);
+        border-color: rgba($white, .1);
+
+        .icon-arrow_forward_ios {
+            color: $gold;
+        }
+    }
+}
+
+.mat-sidenav-container {
+    height: calc(100vh - 79px);
+}
+
+.mat-sidenav {
+    background-color: $light-black;
+    color: $white;
+    padding-top: 79px;
+    @include position(fixed, 0, auto, auto, auto);
+    z-index: 2;
+    height: 100%;
+    transform: translate3d(0, 0, 0) !important;
+    transition: all .2s ease-in;
+    visibility: visible !important;
+    display: block !important;
+    width: 40px;
+    @include box-shadow(7px 0 25px -7px rgba($gold, .7));
+
+    &.mat-drawer-opened {
+        width: 40px;
+    }
+
+    &:not(.mat-drawer-opened) {
+        width: 200px;
+
+        .toggle-button {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.mat-drawer-inner-container {
+    overflow: visible !important;
+}
+
+.sidenav-list {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    padding: 40px 0 0 0;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 10px;
+        transition: all .2s ease;
+        position: relative;
+
+        &:hover {
+            transition: all .2s ease;
+            background-color: rgba($white, .1);
+            color: $gold;
+
+            &::after {
+                content: '';
+                @include position(absolute, 0, -10px, auto, auto);
+                width: 13px;
+                @include border-radius(20px);
+                height: 100%;
+                background: $gold;
+            }
+        }
+
+        &-icon {
+            font-size: 18px;
+        }
+
+        &-title {
+            margin-left: 20px;
+            white-space: nowrap;
+        }
+    }
+}
+
+.mat-sidenav-content {
+    padding: 79px 0 0 0;
+    margin-left: 40px !important;
+}

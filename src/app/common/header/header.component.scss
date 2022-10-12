@@ -1,0 +1,91 @@
+@import "../../../styles/base/variables";
+@import "../../../styles/utils/mixin";
+
+.header {
+    background: $black;
+    color: $white;
+    padding: 0 1.5em;
+    @include position(fixed, 0, auto, auto, 0);
+    z-index: 2;
+    width: 100%;
+
+    &-container-inner {
+        @include flex-row(inherit, center);
+    }
+}
+
+.search-wrapper {
+    margin-right: auto;
+}
+
+.watchlist-wrapper {
+    @include flex-row(inherit, center);
+    padding: 10px 15px;
+    @include border-radius(5px);
+    background-color: transparent;
+    transition: all .5s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba($light-black, 1);
+        transition: all .5s ease;
+
+        .icon-bookmark {
+            color: rgba($gold, 1);
+            transition: all .5s ease;
+        }
+
+        .icon-plus {
+            color: rgba($black, 1);
+            transition: all .5s ease;
+        }
+    }
+
+    .watchlist-icons {
+        @include flex-row(center, center);
+        position: relative;
+    }
+
+    .icon-bookmark {
+        font-size: 1.4em;
+        color: rgba($gold, .7);
+        transition: all .5s ease;
+    }
+    
+    .icon-plus {
+        font-size: 9px;
+        position: absolute;
+        color: rgba($black, .7);
+        @include position(absolute,50%, auto, auto, auto); // position absolute
+        transform: translateY(-74%);
+        transition: all .5s ease;
+    }
+
+    .watchlist-label {
+        margin: 0 10px;
+        color: $white;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    .watchlist-total {
+        @include min-box(25px, 25px); // min-width and height box
+        @include max-box(auto, 25px); // max-width and height box
+        @include flex-row(center, center);
+        padding: 5px;
+        @include border-radius(50%);
+        background: rgba($gold, 1);
+        color: rgba($black, 1);
+
+        span {
+            font-size: .875em;
+            // font-weight: 500;
+            font-family: $font-sans-black;
+        }
+    }
+}
+
+.user-menu-wrapper {
+    margin-left: 90px;
+    margin-right: 20px;
+}
