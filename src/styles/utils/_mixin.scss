@@ -1,9 +1,9 @@
 @import '../base/variables';
 
 
-// ABSOLUTE POSITIONING
-@mixin abs-position ($top, $right, $bottom, $left) {
-    position: absolute;
+// POSITIONING
+@mixin position ($position, $top, $right, $bottom, $left) {
+    position: $position;
     top: $top;
     right: $right;
     bottom: $bottom;

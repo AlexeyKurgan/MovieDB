@@ -24,6 +24,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { SearchComponent } from './components/search/search.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { MainLogoComponent } from './components/main-logo/main-logo.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { MainLogoComponent } from './components/main-logo/main-logo.component';
     MatSelectModule,
     MatChipsModule,
     MatMenuModule,
+  
   ],
   declarations:[
     MainLogoComponent,
@@ -51,12 +53,17 @@ import { MainLogoComponent } from './components/main-logo/main-logo.component';
     UserMenuComponent,
   ],
   exports:[
+    // Modules
+    CommonModule,
+    MatSidenavModule,
+
+    // Components
     MainSliderComponent,
     ButtonComponent,
     PaginatorComponent,
     SearchComponent,
     UserMenuComponent,
-    MainLogoComponent
+    MainLogoComponent,
   ]
 })
 export class SharedModule { }

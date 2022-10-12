@@ -10,5 +10,5 @@
 }
 
 i {
-    @include abs-position(5px,auto,auto,200px)
+    @include position(absolute, 5px,auto,auto,200px)
 }

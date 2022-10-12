@@ -2,11 +2,17 @@
 @import '../../../styles/utils/mixin';
 
 .footer {
-    display: flex;
-    align-items: center;
     color: $white;
-    background-color: $light-black;
+    background-color: $black;
     padding: 0 1.5em;
+    @include position(fixed, auto, auto, 0, 0);
+    width: 100%;
+    z-index: 2;
+
+    &-container-inner {
+        display: flex;
+        align-items: center;
+    }
 
     &-author-code {
         display: flex;
