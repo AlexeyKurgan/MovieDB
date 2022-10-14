@@ -1,16 +1,28 @@
-<button mat-button [matMenuTriggerFor]="menu">
-  <div class="user-icon">
-    <i class="icon-user"></i>
-  </div>
-  <span class="user-name">User</span>
-  <i class="icon-dropdown"></i>
-</button>
+<ng-container *ngIf="false; else signIn">
+  <button mat-button [matMenuTriggerFor]="menu">
+    <div class="user-icon">
+      <i class="icon-user"></i>
+    </div>
+      <span class="user-name">User</span>
+      <i class="icon-dropdown"></i>
+  </button>
+</ng-container>
+
+<ng-template #signIn>
+  <button routerLink="/user-managment/login" class="mat-menu-trigger">
+    <div class="user-icon">
+      <i class="icon-user"></i>
+    </div>
+    <span  class="user-login">Sign in</span>
+  </button>
+</ng-template>
+
 <mat-menu backdropClass="header-menu" #menu="matMenu">
-  <button mat-menu-item>
+  <button routerLink="/user-managment/user-activity" mat-menu-item>
     <span>Your Activity</span>
     <i class="icon-stats-dots"></i>
   </button>
-  <button mat-menu-item>
+  <button routerLink="/user-managment/test"mat-menu-item>
     <span>Your Watchlist</span>
     <i class="icon-heart"></i>
   </button>
@@ -18,7 +30,7 @@
     <span>Your Rating</span>
     <i class="icon-award1"></i>
   </button>
-  <button mat-menu-item>
+  <button routerLink="/user-managment/account-settings" mat-menu-item>
     <span>Account Settings</span>
     <i class="icon-cog"></i>
   </button>
