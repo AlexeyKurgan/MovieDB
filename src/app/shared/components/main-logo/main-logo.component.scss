@@ -1,11 +1,23 @@
 @import '../../../../styles/base/variables';
+@import '../../../../styles/utils/mixin';
 
 .logo-wrapper {
     margin-right: 50px;
 
     .logo-link-home {
-        color: $white;
+        color: $gold;
         font-family: $secondary-font;
         text-decoration: none;
+        transition: all .2s ease;
+        cursor: pointer;
+
+        &:hover {
+            transition: all .2s ease;
+            color: $white;
+        }
+    }
+
+    .logo-text {
+        text-shadow: 1px 1px 0px $dark-gray, 1px 1px 0px $med-gray, 0px 1px 0px $gray;
     }
 }

@@ -10,21 +10,23 @@
           <h3 class="footer-technology-title">Built on top of</h3>
           <ul class="footer-technology-list">
             <li class="footer-technology-item" *ngFor="let technologyItem of technology">
-              <a class="footer-technology-item-link" target="_blank" title="{{ technologyItem.link }}"
-                href="{{ technologyItem.link }}">{{ technologyItem.title }}</a>
+              <a class="footer-technology-item-link" 
+                 target="_blank" 
+                 title="{{ technologyItem.link }}"
+                 [href]="technologyItem.link">{{ technologyItem.title }}</a>
             </li>
           </ul>
         </div>
       </div>
 
       <div class="footer-privacy-police">
-        <a class="footer-privacy-police-link" href="#">
+        <a class="footer-privacy-police-link" routerLink="/privacy-police">
           <span>Privacy Policy</span>
         </a>
       </div>
 
       <div class="footer-github-icon">
-        <a [href]="githubLink" class="footer-github-icon-link">
+        <a [href]="githubLink" target="_blank" class="footer-github-icon-link">
           <i class="icon-github"></i>
         </a>
       </div>
