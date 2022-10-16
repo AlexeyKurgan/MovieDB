@@ -6,7 +6,12 @@
       <div class="swiper-mini-poster">
         <span class="add-watchlist-btn">
           <div class="bookmark"></div>
-          <i class="icon-plus"></i>
+          <ng-container *ngIf="false; else spinner">
+            <i class="icon-plus"></i>
+          </ng-container>
+          <ng-template #spinner>
+            <app-spinner></app-spinner>
+          </ng-template>
         </span>
         <img class="swiper-mini-image" src="../../../../images/slider-poster.jpg" alt="slider-mini-poster">
       </div>
@@ -30,7 +35,12 @@
       <div class="swiper-mini-poster">
         <span class="add-watchlist-btn">
           <div class="bookmark"></div>
-          <i class="icon-plus"></i>
+          <ng-container *ngIf="true; else spinner">
+            <i class="icon-plus"></i>
+          </ng-container>
+          <ng-template #spinner>
+            <app-spinner></app-spinner>
+          </ng-template>
         </span>
         <img class="swiper-mini-image" src="../../../../images/slider-poster.jpg" alt="slider-mini-poster">
       </div>
@@ -54,7 +64,12 @@
       <div class="swiper-mini-poster">
         <span class="add-watchlist-btn">
           <div class="bookmark"></div>
-          <i class="icon-plus"></i>
+          <ng-container *ngIf="false; else spinner">
+            <i class="icon-plus"></i>
+          </ng-container>
+          <ng-template #spinner>
+            <app-spinner></app-spinner>
+          </ng-template>
         </span>
         <img class="swiper-mini-image" src="../../../../images/slider-poster.jpg" alt="slider-mini-poster">
       </div>

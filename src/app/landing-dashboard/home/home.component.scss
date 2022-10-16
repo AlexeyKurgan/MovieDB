@@ -1,9 +1,10 @@
+@import '../../../styles/base/variables';
+@import '../../../styles/utils/mixin';
+
 .home-sreen-wrapper {
     width: 100%;
-
-    display: grid;
-    grid-template-columns: 80% 20%;
-    grid-gap: 10px;
+    @include css3-prefix(display, grid);
+    @include css3-prefix(grid-template-columns, 80% 20%);
 
     .main-slider {
         overflow: hidden;
