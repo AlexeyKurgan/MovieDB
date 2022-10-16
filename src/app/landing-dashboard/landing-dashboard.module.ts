@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LandingDashboardRoutingModule } from './landing-dashboard.routing.module';
-// import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 // components
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
@@ -17,7 +17,7 @@ import { UpcomingComponent } from './upcoming/upcoming.component';
   imports: [
     RouterModule,
     LandingDashboardRoutingModule,
-    // SharedModule,
+    SharedModule,
   ],
   declarations: [
     HomeComponent,

@@ -275,6 +275,7 @@ html {
     line-height: 1.5;
     color: $white;
     background-color: $light-black;
+    overflow-x: hidden;
   }
   
   [tabindex="-1"]:focus {
