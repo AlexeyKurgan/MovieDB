@@ -1,9 +1,9 @@
 @import '../base/variables';
 
 
-// ABSOLUTE POSITIONING
-@mixin abs-position ($top, $right, $bottom, $left) {
-    position: absolute;
+// POSITIONING
+@mixin position ($position, $top, $right, $bottom, $left) {
+    position: $position;
     top: $top;
     right: $right;
     bottom: $bottom;
@@ -42,6 +42,12 @@
 }
 
 // FLEXBOX TOOLKIT
+@mixin flex-row($j-content, $al-items) {
+    display: flex;
+    justify-content: $j-content;
+    align-items: $al-items;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;
@@ -75,11 +81,24 @@
     background-position: center;
 }
 
-// BOX
+// WIDTH BOX
 @mixin box($width, $height: $width) {
     width: $width;
     height: $height;
 }
+
+// MIN WIDTH BOX
+@mixin min-box($width, $height: $width) {
+    min-width: $width;
+    min-height: $height;
+}
+
+// MAX WIDTH BOX
+@mixin max-box($width, $height: $width) {
+    max-width: $width;
+    max-height: $height;
+}
+
 
 // CENTER BLOCK
 @mixin center-block {

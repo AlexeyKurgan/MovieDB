@@ -1,0 +1,85 @@
+@import '../../../styles/base/variables';
+@import '../../../styles/utils/mixin';
+
+.footer {
+    color: $white;
+    background-color: $black;
+    padding: 0 1.5em;
+    @include position(fixed, auto, auto, 0, 0);
+    width: 100%;
+    z-index: 2;
+
+    &-container-inner {
+        display: flex;
+        align-items: center;
+    }
+
+    &-author-code {
+        display: flex;
+        align-items: center;
+    }
+
+    &-author-name {
+        margin-right: 150px;
+    }
+
+    &-technology-title {
+        font-size: 1em;
+        padding: 5px;
+        margin: 0;
+    }
+
+    &-technology-list {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &-technology-item-link {
+        color: $white;
+        text-decoration: none;
+        padding: 5px;
+        transition: all .2s ease-in;
+
+        &:hover {
+            transition: all .2s ease-in;
+            color: $gold;
+        }
+    }
+
+    &-privacy-police {
+        margin-left: auto;
+    }
+
+    &-privacy-police-link {
+        color: $white;
+        text-decoration: none;
+        transition: all .2s ease-in;
+        font-size: 1em;
+
+        &:hover {
+            color: $gold;
+            transition: all .2s ease-in;
+        }
+    }
+
+    &-github-icon {
+        margin-left: 50px;
+        
+        .icon-github {
+            font-size: 2em;
+        }
+    }
+
+    &-github-icon-link {
+        text-decoration: none;
+        color: $white;
+        transition: all .2s ease-in;
+
+        &:hover {
+            transition: all .2s ease-in;
+            color: $gold;
+        }
+    }
+}
