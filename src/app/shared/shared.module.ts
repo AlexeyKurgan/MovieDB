@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 // ngx-bootstrap modules
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -26,7 +27,6 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { SearchComponent } from './components/search/search.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { MainLogoComponent } from './components/main-logo/main-logo.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({

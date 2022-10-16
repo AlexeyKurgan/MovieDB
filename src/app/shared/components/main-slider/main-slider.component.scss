@@ -33,7 +33,7 @@
     transform: scale(1);
     transition: all .4s ease;
     @include box-shadow(0 -1px 7px 3px rgba($light-black, .8));
-    @include box(135px, 195px);
+    @include box(175px, 255px);
     @include position(absolute, auto, auto, 23px, 115px);
     
     &::after {

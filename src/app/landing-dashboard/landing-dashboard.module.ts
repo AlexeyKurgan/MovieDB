@@ -12,6 +12,7 @@ import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { PrivacyPoliceComponent } from './privacy-police/privacy-police.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
+import { UpcomingCardComponent } from './upcoming/upcoming-card/upcoming-card.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { UpcomingComponent } from './upcoming/upcoming.component';
     UpcomingComponent,
     NotFoundComponent,
     PrivacyPoliceComponent,
+    UpcomingCardComponent
   ],
   exports: [
     HomeComponent,
@@ -36,6 +38,7 @@ import { UpcomingComponent } from './upcoming/upcoming.component';
     UpcomingComponent,
     NotFoundComponent,
     PrivacyPoliceComponent,
+    UpcomingCardComponent
   ]
 })
 export class LandingDashboardModule { }
