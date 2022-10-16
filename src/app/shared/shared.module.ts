@@ -1,13 +1,14 @@
 // import modules
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 // ngx-bootstrap modules
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
+
+// swiper module
+import { SwiperModule } from 'swiper/angular';
 
 // material modules
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -26,15 +27,16 @@ import { SearchComponent } from './components/search/search.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { MainLogoComponent } from './components/main-logo/main-logo.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     RouterModule,
+    // swiper
+    SwiperModule,
     // ngx-bootstrap
     TooltipModule.forRoot(),
-    CarouselModule.forRoot(),
     ButtonsModule.forRoot(),
     // material
     MatPaginatorModule,
@@ -53,6 +55,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     PaginatorComponent,
     SearchComponent,
     UserMenuComponent,
+    SpinnerComponent
   ],
   exports:[
     // Modules
@@ -66,6 +69,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     SearchComponent,
     UserMenuComponent,
     MainLogoComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }
