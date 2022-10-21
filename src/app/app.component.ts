@@ -1,10 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentChecked, DoCheck } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'movieDB';
+  isHomePage: boolean = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      map((e) => {
+        const re: RegExp = /\/home/g; 
+        let homeUrl = e.url.match(re)?.toString()??'';
+        let result = homeUrl === '\/home'? true: false;
+        return result;
+      })
+    ).subscribe(homeUrl => {
+      this.isHomePage = homeUrl;
+      return this.isHomePage;
+    })
+  }
 }

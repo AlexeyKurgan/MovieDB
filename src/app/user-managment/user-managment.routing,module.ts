@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserManagmentComponent } from './components/user-managment/user-managment.component';
 
 // components
 const routes: Routes = [
   {
     path: '',
-    pathMatch: "full",
-    redirectTo: 'login'
+    component: UserManagmentComponent
   },
   {
     path: 'login',

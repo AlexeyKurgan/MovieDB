@@ -12,13 +12,18 @@ import { PrivacyPoliceComponent } from './privacy-police/privacy-police.componen
 import { UpcomingComponent } from './upcoming/upcoming.component';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
-  {path:'favorite-list', component: FavoriteListComponent},
-  {path:'now-playing', component: NowPlayingComponent},
-  {path:'popular', component: PopularMoviesComponent},
-  {path:'upcoming', component: UpcomingComponent},
-  {path:'privacy-police', component: PrivacyPoliceComponent},
-  {path:'**', component: NotFoundComponent},
+  {
+    path: '',
+    children: [
+        { path: '', component: HomeComponent },
+        { path: 'favorite-list', component: FavoriteListComponent },
+        { path: 'now-playing', component: NowPlayingComponent },
+        { path: 'popular', component: PopularMoviesComponent },
+        { path: 'upcoming', component: UpcomingComponent },
+        { path: 'privacy-police', component: PrivacyPoliceComponent },
+        { path: '**', component: NotFoundComponent },
+    ],
+}
 ];
 
 @NgModule({

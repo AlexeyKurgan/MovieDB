@@ -5,6 +5,9 @@ import { UserAccountModule } from './user-account/user-account.module';
 import { UserActivityModule } from './user-activity/user-activity.module';
 import { UserManagmentRoutingModule } from './user-managment.routing,module';
 
+// Components
+import { UserManagmentComponent } from './components/user-managment/user-managment.component';
+
 @NgModule({
   imports: [
     RouterModule,
@@ -13,7 +16,9 @@ import { UserManagmentRoutingModule } from './user-managment.routing,module';
     UserActivityModule,
     UserAccountModule,
   ],
-  declarations: [],
+  declarations: [
+    UserManagmentComponent
+  ],
   exports: [
     UserAccountSettingsModule,
     UserActivityModule,

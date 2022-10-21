@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CommonModule } from './common/common.module';
 import { SharedModule } from './shared/shared.module'; 
-import { LandingDashboardModule } from './landing-dashboard/landing-dashboard.module';
-import { UserManagmentModule } from './user-managment/user-managment.module';
-
 // components
 import { AppComponent } from './app.component';
 
@@ -21,8 +18,6 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     CommonModule,
     SharedModule,
-    LandingDashboardModule,
-    UserManagmentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
