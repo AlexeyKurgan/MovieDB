@@ -17,9 +17,9 @@ export class AppComponent implements OnInit {
     this.router.events.pipe(
       filter((e): e is NavigationEnd => e instanceof NavigationEnd),
       map((e) => {
-        const re: RegExp = /\/home/g; 
-        let homeUrl = e.url.match(re)?.toString()??'';
-        let result = homeUrl === '\/home'? true: false;
+        const re: RegExp = /(^\/)|(home)|(\/*[a-z])/g; 
+        let homeUrl = e.url.match(re)?.join('');
+        let result = homeUrl?.startsWith('\/home') || homeUrl === '\/'? true: false;
         return result;
       })
     ).subscribe(homeUrl => {
