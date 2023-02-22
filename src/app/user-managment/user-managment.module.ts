@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UserAccountSettingsModule } from './user-account-settings/user-account-settings.module';
-import { UserAccountModule } from './user-account/user-account.module';
 import { UserActivityModule } from './user-activity/user-activity.module';
 import { UserManagmentRoutingModule } from './user-managment.routing,module';
 
@@ -14,7 +13,6 @@ import { UserManagmentComponent } from './components/user-managment/user-managme
     UserManagmentRoutingModule,
     UserAccountSettingsModule,
     UserActivityModule,
-    UserAccountModule,
   ],
   declarations: [
     UserManagmentComponent
@@ -22,7 +20,6 @@ import { UserManagmentComponent } from './components/user-managment/user-managme
   exports: [
     UserAccountSettingsModule,
     UserActivityModule,
-    UserAccountModule,
   ]
 })
 export class UserManagmentModule { }

@@ -1,4 +1,4 @@
-<ng-container *ngIf="true; else signIn">
+<ng-container *ngIf="false; else signIn">
   <button mat-button [matMenuTriggerFor]="menu">
     <div class="user-icon">
       <i class="icon-user"></i>
@@ -9,7 +9,7 @@
 </ng-container>
 
 <ng-template #signIn>
-  <button routerLink="/user-managment" class="mat-menu-trigger">
+  <button (click)="loginUser()" class="mat-menu-trigger">
     <div class="user-icon">
       <i class="icon-user"></i>
     </div>

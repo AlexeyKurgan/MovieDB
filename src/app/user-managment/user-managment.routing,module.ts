@@ -4,13 +4,10 @@ import { UserManagmentComponent } from './components/user-managment/user-managme
 
 // components
 const routes: Routes = [
+  // temporary solution
   {
     path: '',
     component: UserManagmentComponent
-  },
-  {
-    path: 'login',
-    loadChildren: ()=> import('./user-account/user-account.module').then(m => m.UserAccountModule)
   },
   {
     path: 'account-settings',

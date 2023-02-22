@@ -73,7 +73,7 @@
         @include max-box(auto, 25px); // max-width and height box
         @include flex-row(center, center);
         padding: 5px;
-        @include border-radius(50%);
+        @include border-radius(5px);
         background: rgba($gold, 1);
         color: rgba($black, 1);
 
