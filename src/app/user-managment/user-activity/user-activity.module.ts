@@ -6,9 +6,6 @@ import { UserActivityRoutingModule } from './user-activity.routing.module';
 // components
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { MainComponentComponent } from './main-component/main-component.component';
-
-// components
-
 @NgModule({
   imports: [
     CommonModule,

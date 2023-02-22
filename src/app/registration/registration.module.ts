@@ -1,23 +1,24 @@
+//Modules
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserAccountRoutingModule } from './user-account.routing.module';
+import { RegistrationRoutingModule } from './registration.routing.module.ts.routing'
 
-// components
+// Components
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    UserAccountRoutingModule
+    RegistrationRoutingModule
   ],
   declarations: [
     LoginComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
   ],
   exports: [
     LoginComponent,
     ResetPasswordComponent
-  ]
+  ],
 })
-export class UserAccountModule { }
+export class RegistrationModule { }
