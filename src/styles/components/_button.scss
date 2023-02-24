@@ -1,0 +1,44 @@
+@import '../base/variables';
+@import '../utils/mixin';
+
+.btn {
+    @include flex-toolkit(inline-flex, center, center);
+    @include min-box(30px, 30px);
+    @include box-shadow(none);
+    @include border-radius(4px);
+    border: none;
+    font-family: $secondary-font;
+    cursor: pointer;
+    padding: 8px;
+    transition: all .2s ease-in;
+    
+    &-primary {
+        background-color: $gold;
+        color: $black;
+
+        &:hover {
+            transition: all .2s ease-in;
+            color: $white;
+        }
+    }
+
+    &-secondary {
+        background-color: $white;
+        color: $gold;
+        border: 1px solid $gold;
+
+        &:hover {
+            transition: all .2s ease-in;
+            color: $black;
+        }
+    }
+
+    &-full {
+        width: 100%;
+    }
+
+    &-small {
+        max-width: 110px;
+        padding: 4px 8px;
+    }
+}

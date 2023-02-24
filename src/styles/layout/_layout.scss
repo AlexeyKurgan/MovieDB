@@ -5,7 +5,6 @@
   }
   
   /* FLEX */
-  
   .d-f {
     display: flex;
   }
@@ -92,7 +91,6 @@
     }
   }
 
-
   /* HEIGHT */
   @for $i from 1 through 600 {
     .h-#{$i}px {
@@ -105,7 +103,6 @@
       height: $i + 0%;
     }
   }
-  
 
   /* POSITIONS */
   .pos-r {
@@ -119,9 +116,8 @@
   .c-p {
     cursor: pointer;
   }
+
   /* Margins && Paddings */
-  
-  
   @for $i from 0 through 110 {
     .m-#{$i} {
       margin: $i + 0px;
