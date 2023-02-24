@@ -1,0 +1,12 @@
+<section class="upcoming-wrapper" [class.upc-all-layout]="isUpcomingPage">
+  <h2 class="title">Upcoming movies</h2>
+  
+  <ng-container *ngIf="isUpcomingPage; else upcomingPreview">
+    <upcoming-all></upcoming-all>
+  </ng-container>
+
+  <ng-template #upcomingPreview>
+    <upcoming-preview></upcoming-preview>
+  </ng-template>
+
+</section>

@@ -11,13 +11,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { PrivacyPoliceComponent } from './privacy-police/privacy-police.component';
-import { UpcomingComponent } from './upcoming/upcoming.component';
-import { UpcomingCardComponent } from './upcoming/upcoming-card/upcoming-card.component';
+import { UpcomingModule } from './upcoming/upcoming.module';
 
 @NgModule({
   imports: [
     RouterModule,
     LandingDashboardRoutingModule,
+    UpcomingModule,
     SharedModule,
   ],
   declarations: [
@@ -25,20 +25,17 @@ import { UpcomingCardComponent } from './upcoming/upcoming-card/upcoming-card.co
     FavoriteListComponent,
     NowPlayingComponent,
     PopularMoviesComponent,
-    UpcomingComponent,
     NotFoundComponent,
     PrivacyPoliceComponent,
-    UpcomingCardComponent
   ],
   exports: [
     HomeComponent,
     FavoriteListComponent,
     NowPlayingComponent,
     PopularMoviesComponent,
-    UpcomingComponent,
     NotFoundComponent,
     PrivacyPoliceComponent,
-    UpcomingCardComponent
+    UpcomingModule,
   ]
 })
 export class LandingDashboardModule { }

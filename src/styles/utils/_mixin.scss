@@ -48,6 +48,13 @@
     align-items: $al-items;
 }
 
+@mixin flex-toolkit($flex-type: flex, $j-content: flex-start, $al-items: stretch, $flex-direction: row) {
+    display: $flex-type;
+    justify-content: $j-content;
+    align-items: $al-items;
+    flex-direction: $flex-direction;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;

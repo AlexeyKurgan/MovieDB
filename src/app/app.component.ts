@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, AfterContentChecked, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 
@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
         return result;
       })
     ).subscribe(homeUrl => {
+      console.log('app')
       this.isHomePage = homeUrl;
       return this.isHomePage;
     })

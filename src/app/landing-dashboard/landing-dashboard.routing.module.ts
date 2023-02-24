@@ -9,7 +9,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { PrivacyPoliceComponent } from './privacy-police/privacy-police.component';
-import { UpcomingComponent } from './upcoming/upcoming.component';
 
 const routes: Routes = [
   {
@@ -19,11 +18,14 @@ const routes: Routes = [
         { path: 'favorite-list', component: FavoriteListComponent },
         { path: 'now-playing', component: NowPlayingComponent },
         { path: 'popular', component: PopularMoviesComponent },
-        { path: 'upcoming', component: UpcomingComponent },
+        {
+          path: 'upcoming',
+          loadChildren: ()=> import('./upcoming/upcoming.module').then(m => m.UpcomingModule)
+        },
         { path: 'privacy-police', component: PrivacyPoliceComponent },
         { path: '**', component: NotFoundComponent },
     ],
-}
+},
 ];
 
 @NgModule({
