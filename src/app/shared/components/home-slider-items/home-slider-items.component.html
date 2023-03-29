@@ -1,0 +1,5 @@
+<swiper [config]="homeSliderConfig">
+  <ng-template swiperSlide *ngFor="let movie of movies">
+      <img class="swiper-image" src="{{posterUrl + movie.poster_path}}" alt="{{movie.title}}">
+  </ng-template>
+</swiper>

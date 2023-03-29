@@ -1,9 +1,4 @@
-<swiper effect="fade" 
-        [slidesPerView]="1" 
-        [spaceBetween]="10" 
-        [navigation]="true" 
-        showsPagination={false}
-        [pagination]="{ clickable: true, enabled: false }">
+<swiper class="swiper-container" [config]="mainSliderConfig">
   <ng-template swiperSlide>
     <a href="#">
       <img class="swiper-image" src="../../../../images/slider-poster.jpg" alt="slider-poster">

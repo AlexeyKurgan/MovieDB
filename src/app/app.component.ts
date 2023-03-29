@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
         return result;
       })
     ).subscribe(homeUrl => {
-      console.log('app')
       this.isHomePage = homeUrl;
       return this.isHomePage;
     })

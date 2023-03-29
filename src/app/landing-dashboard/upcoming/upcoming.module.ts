@@ -1,7 +1,7 @@
+import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UpcomingRoutingModule } from './upcoming.routing.module.';
-
 
 // Components 
 import { UpcomingMainComponent } from './upcoming-main/upcoming-main.component';
@@ -13,6 +13,7 @@ import { UpcomingAllComponent } from './upcoming-all/upcoming-all.component';
   imports: [
     CommonModule,
     UpcomingRoutingModule,
+    SharedModule,
   ],
   declarations: [
     UpcomingMainComponent,
