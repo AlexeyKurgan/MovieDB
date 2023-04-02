@@ -17,7 +17,12 @@
         }
     }
 
+    .logo-img {
+        max-height: 65px;
+    }
+
     .logo-text {
         text-shadow: 1px 1px 0px $dark-gray, 1px 1px 0px $med-gray, 0px 1px 0px $gray;
     }
+    
 }

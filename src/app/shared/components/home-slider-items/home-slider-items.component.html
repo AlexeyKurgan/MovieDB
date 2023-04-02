@@ -1,5 +1,50 @@
 <swiper [config]="homeSliderConfig">
   <ng-template swiperSlide *ngFor="let movie of movies">
-      <img class="swiper-image" src="{{posterUrl + movie.poster_path}}" alt="{{movie.title}}">
+    <span class="add-watchlist-btn" [class.success-bg-btn]="false" tabindex="0">
+      <i class="bookmark"></i>
+      <i *ngIf="true;" class="icon-plus"></i>
+      <i *ngIf="false;" class="icon-check"></i>
+      <app-spinner *ngIf="false;"></app-spinner>
+    </span>
+
+    <div class="swiper-slide-poster">
+      <a class="swiper-slide-link" href="#">
+        <img class="swiper-image" src="{{posterUrl + movie.poster_path}}" alt="{{movie.title}}">
+      </a>
+    </div>
+
+    <div class="swiper-slide-content">
+      <div class="swiper-rating">
+        <span class="swiper-rating-star">
+          <i class="icon-star-full"></i>
+          {{movie.vote_average}}
+        </span>
+        <button *ngIf="true" class="swiper-rate-button">
+          <i class="icon-star-empty"></i>
+        </button>
+        <button *ngIf="false" class="swiper-rate-button">
+          <i class="icon-star-full"></i>
+          <span>5</span>
+        </button>
+      </div>
+      <div class="swiper-meta">
+        <span class="swiper-release-date">{{movie.release_date | date:'MMM d, y'}}</span>
+        <span class="swiper-original-lang">{{movie.original_language}}</span>
+      </div>
+      <a href="#" class="swiper-poster-title">{{movie.original_title}}</a>
+      <button class="swiper-btn-watchlist">
+        <i class="icon-plus"></i>
+        <span class="m-l-10">Watchlist</span>
+      </button>
+      <div class="swiper-other-actions">
+        <button class="swiper-trailer-btn" (click)="showWatchListPopup()">
+          <i class="icon-play_arrow"></i>
+          <span class="m-l-10">Trailer</span>
+        </button>
+        <button class="swiper-more-info-btn" (click)="showWatchListPopup()">
+          <i class="icon-notification"></i>
+        </button>
+      </div>
+    </div>
   </ng-template>
 </swiper>

@@ -1,7 +1,8 @@
 import { Observable, of } from 'rxjs';
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { MovieDataService } from './../../services/movies/movie-data.service';
 import { HomeSliderConfigService } from './../../services/slider-configs/home-slider-config.service';
+import { CommonPopupService } from '../../services/popup-service/common-popup.service';
 
 @Component({
   selector: 'home-slider-items',
@@ -10,15 +11,16 @@ import { HomeSliderConfigService } from './../../services/slider-configs/home-sl
 export class HomeSliderItemsComponent implements OnInit {
   @Input() movieType!: string;
   movies: any[] = [];
-  posterUrl: string = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
+  posterUrl: string = 'https://www.themoviedb.org/t/p/w342';
   homeSliderConfig: any;
   
   constructor(
       private moviesDataService: MovieDataService,
       private homeSliderSwiperConfig: HomeSliderConfigService,
-    ) { 
+      private popupService: CommonPopupService,
+      ) { 
       this.homeSliderConfig = this.homeSliderSwiperConfig.getConfig();
-    }
+  }
 
   ngOnInit() {
     this.getMovie();
@@ -68,12 +70,16 @@ export class HomeSliderItemsComponent implements OnInit {
     )
   }
 
-  handleMovieData(movieType:string ,moviesData$: any) {
+  handleMovieData(movieType:string, moviesData$: any) {
     if (!moviesData$) {
       console.log(`Error: ${movieType} data is ${moviesData$}`)
     } else {
       this.getMoviesData(moviesData$)
     }
+  }
+
+  showWatchListPopup () {
+    this.popupService.componentBasedPopup();
   }
 
 }

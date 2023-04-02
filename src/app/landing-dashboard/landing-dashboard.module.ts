@@ -12,6 +12,7 @@ import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { PrivacyPoliceComponent } from './privacy-police/privacy-police.component';
 import { UpcomingModule } from './upcoming/upcoming.module';
+import { TopRatedComponent } from './top-rated/top-rated.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { UpcomingModule } from './upcoming/upcoming.module';
     FavoriteListComponent,
     NowPlayingComponent,
     PopularMoviesComponent,
+    TopRatedComponent,
     NotFoundComponent,
     PrivacyPoliceComponent,
   ],
@@ -33,6 +35,7 @@ import { UpcomingModule } from './upcoming/upcoming.module';
     FavoriteListComponent,
     NowPlayingComponent,
     PopularMoviesComponent,
+    TopRatedComponent,
     NotFoundComponent,
     PrivacyPoliceComponent,
     UpcomingModule,

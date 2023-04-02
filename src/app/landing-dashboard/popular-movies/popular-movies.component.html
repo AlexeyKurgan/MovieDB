@@ -1,4 +1,10 @@
 <div class="c-popular-movies">
-  <home-slider-items class="c-home-slider-items" [movieType]="'popular'"></home-slider-items>
+  <div class="title-wrapper">
+    <h2 class="title">{{title}}</h2>
+    <a href="#" class="explore-all-link">Explore all</a>
+  </div>
+  <home-slider-items class="c-home-slider-items" 
+                     [movieType]="'popular'">
+  </home-slider-items>
 </div>
 

@@ -3,9 +3,6 @@
 
 // Upcoming-preview styles
 .c-upcoming-wrapper {
-    .title {
-        color: $gold;
-    }
 
     .upcoming-card {
         background-color: rgba($white, .1);
@@ -43,6 +40,8 @@
     
             .title {
                 font-size: 20px;
+                padding: 0;
+                margin: 0;
                 margin-right: 10px;
             }
         
@@ -97,37 +96,10 @@
             }
         }
     }
-
-    .explore-all-link {
-        font-size: 18px;
-        color: $gold;
-        position: relative;
-        cursor: pointer;
-    
-        &::after {
-            content: '';
-            background: $gold;
-            @include box(0, 1px);
-            @include position(absolute, auto, auto, -2px, 0);
-            transition: width .3s ease-in;
-        }
-    
-        &:hover {
-            &::after {
-                width: 100%;
-                transition: width .3s ease-in;
-            }
-        }
-    }
 }
-
 
 // Upcoming-All styles
 .upc-all-layout {
-    .title {
-        padding: 0 10px;
-        margin: 0;
-    }
 
     .card-wrapper {
         display: grid;

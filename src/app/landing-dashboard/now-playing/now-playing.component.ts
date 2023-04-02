@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./now-playing.component.scss']
 })
 export class NowPlayingComponent implements OnInit {
+  title: string = 'Now Playing Movies';
 
   constructor() { }
 

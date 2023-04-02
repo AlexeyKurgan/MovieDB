@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popular-movies.component.scss']
 })
 export class PopularMoviesComponent implements OnInit {
+  title: string = 'Popular Movies';
 
   constructor() { }
 

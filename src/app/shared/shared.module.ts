@@ -47,6 +47,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // declarations components
 import { MainSliderComponent } from './components/main-slider/main-slider.component';
@@ -57,6 +58,7 @@ import { SearchComponent } from './components/search/search.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { MainLogoComponent } from './components/main-logo/main-logo.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { CommonPopupComponent } from './services/popup-service/common-popup.component';
 
 @NgModule({
   imports: [
@@ -76,7 +78,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     MatSelectModule,
     MatChipsModule,
     MatMenuModule,
-  
+    MatDialogModule,
   ],
   declarations:[
     MainLogoComponent,
@@ -86,7 +88,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     PaginatorComponent,
     SearchComponent,
     UserMenuComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CommonPopupComponent,
   ],
   exports:[
     // Modules
@@ -101,7 +104,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     SearchComponent,
     UserMenuComponent,
     MainLogoComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CommonPopupComponent
   ]
 })
 export class SharedModule { }

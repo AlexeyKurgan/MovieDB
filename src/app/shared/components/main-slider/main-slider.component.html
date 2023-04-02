@@ -1,89 +1,25 @@
 <swiper class="swiper-container" [config]="mainSliderConfig">
-  <ng-template swiperSlide>
+  <ng-template swiperSlide *ngFor="let upcomingSlide of upcomingMoviesSlides">
     <a href="#">
-      <img class="swiper-image" src="../../../../images/slider-poster.jpg" alt="slider-poster">
+      <img class="swiper-image" src="{{backdropUrl + upcomingSlide.backdrop_path}}" alt="{{upcomingSlide.title}}">
       <div class="swiper-mini-poster">
         <span class="add-watchlist-btn">
-          <div class="bookmark"></div>
-          <ng-container *ngIf="false; else spinner">
-            <i class="icon-plus"></i>
-          </ng-container>
-          <ng-template #spinner>
-            <app-spinner></app-spinner>
-          </ng-template>
+          <i class="bookmark"></i>
+          <i *ngIf="false;" class="icon-plus"></i>
+          <i *ngIf="false;" class="icon-check"></i>
+          <app-spinner *ngIf="true;"></app-spinner>
         </span>
-        <img class="swiper-mini-image" src="../../../../images/slider-poster.jpg" alt="slider-mini-poster">
+        <img class="swiper-mini-image" src="{{backdropUrl + upcomingSlide.poster_path}}" alt="{{upcomingSlide.title}}">
       </div>
       <div class="swiper-poster-info">
-          <span class="title">Mad Max</span>
-          <div class="flex-container">
-            <span class="short-desc">
-              A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. 
-              Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.
-            </span>
-            <div class="vote-avage-wrapper">
-              <span class="vote-average">8.434</span>
-            </div>
-          </div>
-      </div>
-    </a>
-  </ng-template>
-  <ng-template swiperSlide>
-    <a href="#">
-      <img class="swiper-image" src="../../../../images/slider-poster.jpg" alt="slider-poster">
-      <div class="swiper-mini-poster">
-        <span class="add-watchlist-btn">
-          <div class="bookmark"></div>
-          <ng-container *ngIf="true; else spinner">
-            <i class="icon-plus"></i>
-          </ng-container>
-          <ng-template #spinner>
-            <app-spinner></app-spinner>
-          </ng-template>
-        </span>
-        <img class="swiper-mini-image" src="../../../../images/slider-poster.jpg" alt="slider-mini-poster">
-      </div>
-      <div class="swiper-poster-info">
-        <span class="title">Mad Max</span>
-        <div class="flex-container">
+          <span class="title">{{upcomingSlide.original_title}}</span>
           <span class="short-desc">
-            A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. 
-            Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.
+            {{upcomingSlide.overview}}
           </span>
           <div class="vote-avage-wrapper">
-            <span class="vote-average">8.434</span>
+            <span class="vote-average">{{upcomingSlide.vote_average}}</span>
           </div>
-        </div>
-    </div>
-    </a>
-  </ng-template>
-  <ng-template swiperSlide>
-    <a href="#">
-      <img class="swiper-image" src="../../../../images/slider-poster.jpg" alt="slider-poster">
-      <div class="swiper-mini-poster">
-        <span class="add-watchlist-btn">
-          <div class="bookmark"></div>
-          <ng-container *ngIf="false; else spinner">
-            <i class="icon-plus"></i>
-          </ng-container>
-          <ng-template #spinner>
-            <app-spinner></app-spinner>
-          </ng-template>
-        </span>
-        <img class="swiper-mini-image" src="../../../../images/slider-poster.jpg" alt="slider-mini-poster">
       </div>
-      <div class="swiper-poster-info">
-        <span class="title">Mad Max</span>
-        <div class="flex-container">
-          <span class="short-desc">
-            A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. 
-            Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.
-          </span>
-          <div class="vote-avage-wrapper">
-            <span class="vote-average">8.434</span>
-          </div>
-        </div>
-    </div>
     </a>
   </ng-template>
 </swiper>

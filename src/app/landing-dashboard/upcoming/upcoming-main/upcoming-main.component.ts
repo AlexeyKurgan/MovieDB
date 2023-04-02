@@ -7,7 +7,8 @@ import { BehaviorSubject, filter, map, Subject } from 'rxjs';
   templateUrl: './upcoming-main.component.html',
 })
 export class UpcomingMainComponent implements OnInit {
-  isUpcomingPage: boolean = false;
+  isUpcomingGridItems: boolean = false;
+  title: string = 'Upcoming Movies';
   urlString: string = '/home/upcoming';
  
   constructor(private router: Router) {}
@@ -18,9 +19,9 @@ export class UpcomingMainComponent implements OnInit {
 
   compareUrl(url:string):void {
     if(this.router.url === url) {
-      this.isUpcomingPage = true;
+      this.isUpcomingGridItems = true;
     }else {
-      this.isUpcomingPage = false
+      this.isUpcomingGridItems = false
     }
   }
 }
