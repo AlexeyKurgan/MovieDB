@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-now-playing',
+  selector: 'now-playing',
   templateUrl: './now-playing.component.html',
   styleUrls: ['./now-playing.component.scss']
 })
 export class NowPlayingComponent implements OnInit {
+  title: string = 'Now Playing Movies';
 
   constructor() { }
 

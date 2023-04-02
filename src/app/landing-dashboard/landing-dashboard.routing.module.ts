@@ -1,3 +1,4 @@
+import { TopRatedComponent } from './top-rated/top-rated.component';
 // modules
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
@@ -18,6 +19,7 @@ const routes: Routes = [
         { path: 'favorite-list', component: FavoriteListComponent },
         { path: 'now-playing', component: NowPlayingComponent },
         { path: 'popular', component: PopularMoviesComponent },
+        { path: 'top-rated', component: TopRatedComponent },
         {
           path: 'upcoming',
           loadChildren: ()=> import('./upcoming/upcoming.module').then(m => m.UpcomingModule)

@@ -1,24 +1,45 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
-// import Swiper core and required modules
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-
-// install Swiper modules
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/core';
+import { of, Subscription } from 'rxjs';
+import { MovieDataService } from '../../services/movies/movie-data.service';
+import { MainSliderConfigService } from '../../services/slider-configs/main-slider-config.service.';
 
 @Component({
   selector: 'main-slider',
   templateUrl: './main-slider.component.html',
-  styleUrls: ['./main-slider.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class MainSliderComponent implements OnInit {
+  mainSliderConfig: any;
+  upcomingMoviesSlides: any[] = [];
+  upcomingMoviesSubscription!: Subscription;
+  backdropUrl: string = 'https://www.themoviedb.org/t/p/w1280';
 
   constructor(
-   
-  ) { }
+      private mainSliderSwiperConfig: MainSliderConfigService,
+      private moviesDataService: MovieDataService,
+    ) {
+      this.mainSliderConfig = this.mainSliderSwiperConfig.getConfig()
+     }
 
   ngOnInit() {
+    this.upcomingMoviesSubscription = this.moviesDataService.getUpcomingMovies().subscribe(
+      {
+        next: (data) => {
+          this.upcomingMoviesSlides = data.results;
+        },
+        error: (err: any) => {
+          console.error(err);
+          return of(null)
+        }
+      }
+    )
+    
+    this.mainSliderSwiperConfig.checkAndUpdateConfig()
   }
+
+ ngOnDestroy() {
+  if(this.upcomingMoviesSubscription) {
+    this.upcomingMoviesSubscription.unsubscribe();
+  }
+ }
 
 }

@@ -1,0 +1,586 @@
+@import '../base/variables';
+@import '../utils/mixin';
+
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+// REFACTORING THIS COMPONENT SCSS
+
+/*-- MAIN SLIDER STYLES --*/
+.c-main-slider {
+    overflow: hidden;
+
+    .swiper-wrapper {
+        width: auto;
+        min-height: 580px;
+        max-height: 580px;
+        @include box-sizing(border-box);
+    }
+    
+    .swiper {
+        height: 100%;
+        margin: 0 15px;
+        position: relative;
+        z-index: 0;
+        @include border-radius(10px);
+    }
+    
+    .swiper-slide {
+        position: relative;
+    }
+    
+    .swiper-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+        object-position: top;
+        @include border-radius(10px);
+    }
+    
+    .swiper-mini-poster {
+        background: rgba($light-black, .5);
+        transform: scale(1);
+        transition: all .4s ease;
+        @include box-shadow(0 -1px 7px 3px rgba($light-black, .8));
+        @include box(175px, 255px);
+        @include position(absolute, auto, auto, 23px, 115px);
+        
+        &::after {
+            content: '';
+            @include position(absolute, 0, auto, auto, 0);
+            @include box(100%, 100%);
+            background-color: rgba($light-black, .2);
+            transition: background-color .4s ease;
+        }
+    
+        &:hover {
+            transition: all .4s ease;
+            transform: scale(1.1);
+    
+            &::after {
+                background-color: rgba($light-black, 0);
+            }
+        }
+    
+        .spinner {
+            @include box(25px, 25px);
+            @include position(absolute, 8px, auto, auto, 5px);
+    
+            div {
+                margin: 0;
+                border-width: 3px;
+            }
+        }
+    }
+    
+    .add-watchlist-btn {
+        position: absolute;
+        z-index: 2;
+        cursor: pointer;
+        transition: all .8s ease;
+    
+        &:hover {
+            .icon-plus {
+                transition: all .8s ease;
+                color: $gold;
+            }
+        }
+    
+        .bookmark {
+            width: 35px;
+            background: $light-black;
+            @include position(absolute, 0, auto, auto, 0);
+            min-height: 40px;
+            z-index: 0;
+        }
+    
+        .bookmark:before,
+        .bookmark:after {
+            content: '';
+            display: block;
+            border: 17px solid transparent;
+            border-top-width: 23px;
+            border-bottom-width: 11px;
+            @include position(absolute, auto, auto, -11px, auto);
+            z-index: -1;
+        }
+    
+        .bookmark:before {
+            border-left-color: $light-black;
+            left: 0;
+        }
+    
+        .bookmark:after {
+            border-right-color: $light-black;
+            right: 0;
+        }
+    
+        .icon-plus {
+            font-size: 18px;
+            color: $white;
+            @include position(absolute, 11px, auto, auto, 7px);
+            z-index: 2;
+        }
+    }
+    
+    .swiper-mini-image {
+        @include box(100%, 100%);
+        object-fit: cover;
+        position: relative;
+    }
+    
+    .swiper-poster-info {
+        width: 60%;
+        max-height: 260px;
+        min-height: 260px;
+        @include position(absolute, 51%, 12%, auto, auto);
+        font-size: 25px;
+        color: $white;
+        padding: 10px;
+        border-radius: 5px;
+        background: rgba($light-black, .4);
+        overflow: hidden;
+    
+        .title {
+            display: block;
+            font-size: 55px;
+            line-height: 50px;
+            font-weight: 600;
+            padding: 0;
+            margin: 0 52px 30px 0;
+            text-transform: capitalize;
+        }
+    
+        .flex-container {
+            @include flex-row(space-between, center);
+        }
+    
+        .short-desc {
+            display: block;
+            max-height: 120px;
+            width: 95%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+    
+        .vote-avage-wrapper {
+            position: absolute;
+            top: 12px;
+            right: 13px;
+            @include flex-row(center, center);
+            font-size: 18px;
+            padding: 10px 12px;
+            background: $gold;
+            @include border-radius(50%);
+        }
+    
+        .vote-average {
+            font-weight: 600;
+        }
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        @include box(50px, 70px);
+        border: 1px solid $white;
+        @include border-radius(5px);
+        background: rgba($light-black, .5);
+        color: $white;
+        transition: all .4s ease;
+    
+        &:hover {
+            color: $gold;
+            transition: all .4s ease;
+        }
+    }
+}
+/*-- MAIN SLIDER STYLES --*/
+
+/*------------------------*/
+
+/*-- HOME SLIDER ITEMS STYLES --*/
+.c-home-slider-items {
+
+    .swiper-wrapper {
+        width: auto;
+        @include box-sizing(border-box);
+    }
+    
+    .swiper {
+        height: 100%;
+        margin: 10px 15px;
+        position: relative;
+        z-index: 0;
+    }
+    
+    .swiper-slide {
+        position: relative;
+    }
+
+    .swiper-slide-poster {
+        max-height: 315px;
+        height: 315px;
+        background-clip: padding-box;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .swiper-slide-link {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba($light-black, 0);
+            transition: all .4s ease;
+        }
+
+        &:hover {
+            &::after {
+                transition: all .4s ease;
+                background-color: rgba($light-black, .2555);
+            }
+        }
+    }
+    
+    .swiper-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .swiper-slide-content {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 8px;
+        background-color: rgba($white, .1);
+    }
+
+    .spinner {
+        @include box(25px, 25px);
+        @include position(absolute, 8px, auto, auto, 5px);
+
+        div {
+            margin: 0;
+            border-width: 3px;
+        }
+    }
+
+    .swiper-rating {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+    
+    .swiper-rating-star {
+        word-spacing: 7px;
+
+        .icon-star-full {
+            color: $gold;
+        }
+    }
+
+    .swiper-rate-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        background: transparent;
+        border-radius: 5px;
+        border: none;
+        color: $light-blue;
+        transition: all .4s ease;
+        cursor: pointer;
+
+        &:hover {
+            transition: all .4s ease;
+            color: $white;
+            background: rgba($light-black, .4);
+        }
+    }
+
+    .swiper-meta {
+        display: flex;
+        justify-content: space-between;
+        margin: 4px 10px 0 0;
+    }
+
+    .swiper-original-lang {
+        text-transform: capitalize;
+    }
+
+    .swiper-poster-title {
+        display: block;
+        font-size: 17px;
+        color: $white;
+        height: 3em;
+        max-height: 3em;
+        margin: 4px 0;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+    }
+
+    .swiper-btn-watchlist,
+    .swiper-more-info-btn,
+    .swiper-trailer-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $light-blue;
+        border: none;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background: rgba($light-black, .4);
+        cursor: pointer;
+        transition: all .4s ease;
+
+
+        .icon-play_arrow {
+            font-size: 18px;
+        }
+
+        .icon-plus {
+            font-size: 13px;
+        }
+
+        &:hover {
+            background: rgba($light-blue, .1);
+            transition: all .4s ease;
+        }
+    }
+
+    .swiper-other-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .swiper-more-info-btn {
+        padding: 7px 25px;
+        font-size: 20px;
+        border: none;
+    }
+
+    .swiper-trailer-btn {
+        padding: 5px 32px;
+    }
+
+    .add-watchlist-btn {
+        position: absolute;
+        left: 3px;
+        z-index: 2;
+        cursor: pointer;
+        width: 37px;
+        height: 52px;
+        transition: all .8s ease;
+        
+        .bookmark {
+            width: 35px;
+            background: rgba($light-black, 1);
+            @include position(absolute, 0, auto, auto, 0);
+            min-height: 40px;
+            z-index: 0;
+        }
+    
+        .bookmark:before,
+        .bookmark:after {
+            content: '';
+            display: block;
+            border: 17px solid transparent;
+            border-top-width: 23px;
+            border-bottom-width: 11px;
+            @include position(absolute, auto, auto, -11px, auto);
+            z-index: -1;
+        }
+    
+        .bookmark:before {
+            border-left-color: rgba($light-black, 1);
+            left: 0;
+        }
+    
+        .bookmark:after {
+            border-right-color: rgba($light-black, 1);
+            right: 0;
+        }
+    
+        .icon-plus {
+            font-size: 14px;
+            color: $white;
+            @include position(absolute, 50%, auto, auto, 50%);
+            transform: translate(-61%, -78%);
+            font-weight: 100;
+            z-index: 2;
+        }
+
+        .icon-check {
+            font-size: 26px;
+            color: $white;
+            @include position(absolute, 50%, auto, auto, 50%);
+            transform: translate(-51%, -74%);
+        }
+
+        &:hover {
+   
+            .icon-plus {
+                transition: all .8s ease;
+                color: $gold;
+            }
+
+            .bookmark {
+                background: rgba($dark-gray, 1);
+                transition: all .8s ease;
+
+                &::before {
+                    border-left-color: rgba($dark-gray, 1);
+                    transition: all .8s ease;
+                }
+
+                &::after {
+                    border-right-color: rgba($dark-gray, 1);
+                    transition: all .8s ease;
+                }
+            }
+        }
+
+        &.success-bg-btn {
+
+            .bookmark {
+
+                background: rgba($gold, 1);
+
+                &::before {
+                    border-left-color: rgba($gold, 1);
+                }
+
+                &::after {
+                     border-right-color: rgba($gold, 1);
+                }
+            }
+
+            .icon-plus {
+                color: $black;
+            }
+
+            .icon-check {
+                color: $black;
+            }
+
+            .spinner {
+        
+                div {
+                    border-color: $black transparent transparent transparent;
+                }
+            }
+
+            &:hover {
+   
+                .icon-plus {
+                    transition: all .8s ease;
+                }
+    
+                .bookmark {
+                    background: rgba($medium-gold, 1);
+                    transition: all .8s ease;
+    
+                    &::before {
+                        border-left-color: rgba($medium-gold, 1);
+                        transition: all .8s ease;
+                    }
+    
+                    &::after {
+                        border-right-color: rgba($medium-gold, 1);
+                        transition: all .8s ease;
+                    }
+                }
+            }
+        }
+    }
+    
+    .swiper-mini-image {
+        @include box(100%, 100%);
+        object-fit: cover;
+        position: relative;
+    }
+    
+    .swiper-poster-info {
+        width: 50%;
+        @include position(absolute, auto, 12%, 85px, auto);
+        font-size: 25px;
+        color: $white;
+    
+        .title {
+            font-size: 55px;
+            line-height: 48px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    
+        .flex-container {
+            @include flex-row(space-between, center);
+        }
+    
+        .short-desc {
+            margin-right: 20px;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+        }
+    
+        .vote-avage-wrapper {
+            @include flex-row(center, center);
+            font-size: 18px;
+            padding: 10px 4px;
+            background: $gold;
+            @include border-radius(50%);
+        }
+    
+        .vote-average {
+            font-weight: 600;
+        }
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        @include box(40px, 50px);
+        border: 1px solid $white;
+        @include border-radius(5px);
+        background: rgba($light-black, .5);
+        color: $white;
+        transition: all .4s ease;
+
+        &::after,
+        &::before {
+            font-size: 1.5em;
+        }
+    
+        &:hover {
+            color: $gold;
+            transition: all .4s ease;
+        }
+
+        &.swiper-button-disabled {
+            visibility: hidden;
+        }
+    }
+}
+/*-- HOME SLIDER ITEMS STYLES --*/

@@ -1,12 +1,16 @@
 @import '../../../styles/base/variables';
 @import '../../../styles/utils/mixin';
 
-.home-screen-wrapper {
+.s-home-screen {
     width: 100%;
     @include css3-prefix(display, grid);
-    @include css3-prefix(grid-template-columns, 80% 20%);
+    @include css3-prefix(grid-template-columns, 1fr);
+}
 
-    .main-slider {
-        overflow: hidden;
-    }
+.s-upcoming,
+.s-now-playing,
+.s-favorite-list,
+.s-popular-movies,
+.s-top-rated-movies {
+    margin-top: 20px;
 }
