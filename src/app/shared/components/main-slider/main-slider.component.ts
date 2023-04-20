@@ -1,24 +1,34 @@
-import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/core';
+
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
+import { Swiper } from 'swiper';
 import { MovieDataService } from '../../services/movies/movie-data.service';
-import { MainSliderConfigService } from '../../services/slider-configs/main-slider-config.service.';
+import { HomeScreenSlidersConfigService } from './../../services/slider-configs/home-screen-sliders-config.service';
 
 @Component({
   selector: 'main-slider',
   templateUrl: './main-slider.component.html',
 })
-export class MainSliderComponent implements OnInit {
-  mainSliderConfig: any;
-  upcomingMoviesSlides: any[] = [];
+export class MainSliderComponent implements OnInit, AfterViewInit {
   upcomingMoviesSubscription!: Subscription;
+
+  mainSlider!: Swiper;
+  secondarySlider!: Swiper;
+ 
+  mainSliderConfig: any;
+  upNextSliderConfig: any;
+
+  upcomingMoviesSlides: any[] = [];
+
   backdropUrl: string = 'https://www.themoviedb.org/t/p/w1280';
 
   constructor(
-      private mainSliderSwiperConfig: MainSliderConfigService,
-      private moviesDataService: MovieDataService,
-    ) {
-      this.mainSliderConfig = this.mainSliderSwiperConfig.getConfig()
-     }
+    private homeScreenSwiperConfig: HomeScreenSlidersConfigService,
+    private moviesDataService: MovieDataService,
+  ) {
+    this.mainSliderConfig = this.homeScreenSwiperConfig.getMainSliderConfig();
+    this.upNextSliderConfig = this.homeScreenSwiperConfig.getUpNextSliderConfig();
+  }
 
   ngOnInit() {
     this.upcomingMoviesSubscription = this.moviesDataService.getUpcomingMovies().subscribe(
@@ -32,14 +42,28 @@ export class MainSliderComponent implements OnInit {
         }
       }
     )
-    
-    this.mainSliderSwiperConfig.checkAndUpdateConfig()
   }
 
- ngOnDestroy() {
-  if(this.upcomingMoviesSubscription) {
-    this.upcomingMoviesSubscription.unsubscribe();
+  ngAfterViewInit() {
+    this.mainSlider = new Swiper('.main', this.mainSliderConfig);
+    this.secondarySlider = new Swiper('.secondary', this.upNextSliderConfig);
+
+    this.mainSlider.controller.control = this.secondarySlider;
+    this.secondarySlider.controller.control = this.mainSlider;
   }
- }
+
+  swiperSlidePrev() {
+    this.mainSlider.slidePrev();
+  }
+
+  swiperSlideNext() {
+    this.mainSlider.slideNext();
+  }
+
+  ngOnDestroy() {
+    if (this.upcomingMoviesSubscription) {
+      this.upcomingMoviesSubscription.unsubscribe();
+    }
+  }
 
 }

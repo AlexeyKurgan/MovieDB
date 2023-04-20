@@ -1,50 +1,88 @@
-<swiper [config]="homeSliderConfig">
-  <ng-template swiperSlide *ngFor="let movie of movies">
-    <span class="add-watchlist-btn" [class.success-bg-btn]="false" tabindex="0">
-      <i class="bookmark"></i>
-      <i *ngIf="true;" class="icon-plus"></i>
-      <i *ngIf="false;" class="icon-check"></i>
-      <app-spinner *ngIf="false;"></app-spinner>
-    </span>
+<div class="title-wrapper">
+  <h2 class="title">{{title}}</h2>
+  <a href="#" class="explore-all-link">Explore all</a>
+</div>
 
-    <div class="swiper-slide-poster">
-      <a class="swiper-slide-link" href="#">
-        <img class="swiper-image" src="{{posterUrl + movie.poster_path}}" alt="{{movie.title}}">
-      </a>
-    </div>
+<div class="pos-r">
+  <ng-container #swiper>
+    <swiper  class="swiper-container items-slider" [config]="homeItemsSliderConfig">
+      <ng-template swiperSlide *ngFor="let movie of movies">
+        <watchlist-toggle-btn></watchlist-toggle-btn>
+    
+        <div class="swiper-slide-poster">
+          <div class="swiper-slide-link" routerLink="/home/now-playing" tabindex="0">
+            <img class="swiper-image" src="{{posterUrl + movie.poster_path}}" alt="{{movie.title}}">
+          </div>
+        </div>
+    
+        <div class="swiper-slide-content">
+          <div class="swiper-rating">
+            <span class="swiper-rating-star">
+              <i class="icon-star-full"></i>
+              {{movie.vote_average}}
+            </span>
+  
+            <mdb-button *ngIf="true"
+                        btnClasses="btn btn-without-bg swiper-rate-button"
+                        [type]="'button'"
+                        [disabled]="false"
+                        [isIconVisible]="true"
+                        [iconClass]="'icon-star-empty'">
+            </mdb-button>
+  
+            <mdb-button *ngIf="false" 
+                        btnClasses="btn btn-without-bg swiper-rate-button"
+                        [type]="'button'"
+                        [disabled]="false"
+                        [isVisibleText]="true"
+                        [isIconVisible]="true"
+                        [text]="'5'"
+                        [iconClass]="'icon-star-full'">
+            </mdb-button>
+          </div>
+          <div class="swiper-meta">
+            <span class="swiper-release-date">{{movie.release_date | date:'MMM d, y'}}</span>
+            <span class="swiper-original-lang">{{movie.original_language}}</span>
+          </div>
+          <span class="swiper-poster-title">{{movie.original_title}}</span>
+  
+          <mdb-button btnClasses="btn btn-drk-primary swiper-btn-watchlist"
+                      [type]="'button'"
+                      [isIconVisible]="true"
+                      [isVisibleText]="true"
+                      [text]="'Watchlist'"
+                      [iconClass]="'icon-plus'"
+                      (click)="showWatchListPopup()">
+          </mdb-button>
+  
+          <div class="swiper-other-actions">
+            <mdb-button class="w-75"
+                        btnClasses="btn btn-drk-primary swiper-trailer-btn"
+                        [type]="'button'"
+                        [isIconVisible]="true"
+                        [isVisibleText]="true"
+                        [text]="'Trailer'"
+                        [iconClass]="'icon-play_arrow'"
+                        (click)="showWatchListPopup()">
+            </mdb-button>
+  
+            <mdb-button class="w-25"
+                        btnClasses="btn btn-drk-primary swiper-more-info-btn"
+                        [type]="'button'"
+                        [isIconVisible]="true"
+                        [iconClass]="'icon-notification'"
+                        (click)="showWatchListPopup()">
+            </mdb-button>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+  </ng-container>
 
-    <div class="swiper-slide-content">
-      <div class="swiper-rating">
-        <span class="swiper-rating-star">
-          <i class="icon-star-full"></i>
-          {{movie.vote_average}}
-        </span>
-        <button *ngIf="true" class="swiper-rate-button">
-          <i class="icon-star-empty"></i>
-        </button>
-        <button *ngIf="false" class="swiper-rate-button">
-          <i class="icon-star-full"></i>
-          <span>5</span>
-        </button>
-      </div>
-      <div class="swiper-meta">
-        <span class="swiper-release-date">{{movie.release_date | date:'MMM d, y'}}</span>
-        <span class="swiper-original-lang">{{movie.original_language}}</span>
-      </div>
-      <a href="#" class="swiper-poster-title">{{movie.original_title}}</a>
-      <button class="swiper-btn-watchlist">
-        <i class="icon-plus"></i>
-        <span class="m-l-10">Watchlist</span>
-      </button>
-      <div class="swiper-other-actions">
-        <button class="swiper-trailer-btn" (click)="showWatchListPopup()">
-          <i class="icon-play_arrow"></i>
-          <span class="m-l-10">Trailer</span>
-        </button>
-        <button class="swiper-more-info-btn" (click)="showWatchListPopup()">
-          <i class="icon-notification"></i>
-        </button>
-      </div>
-    </div>
-  </ng-template>
-</swiper>
+  <div swiperPrev (click)="swiperSlidePrev()" class="swiper-buttons button-prev sw-home">
+    <span class="icon-arrow_back_ios"></span>
+  </div>
+  <div swiperNext (click)="swiperSlideNext()" class="swiper-buttons button-next sw-home">
+    <span class="icon-arrow_forward_ios"></span>
+  </div>
+</div>

@@ -1,25 +1,51 @@
-<swiper class="swiper-container" [config]="mainSliderConfig">
-  <ng-template swiperSlide *ngFor="let upcomingSlide of upcomingMoviesSlides">
-    <a href="#">
-      <img class="swiper-image" src="{{backdropUrl + upcomingSlide.backdrop_path}}" alt="{{upcomingSlide.title}}">
-      <div class="swiper-mini-poster">
-        <span class="add-watchlist-btn">
-          <i class="bookmark"></i>
-          <i *ngIf="false;" class="icon-plus"></i>
-          <i *ngIf="false;" class="icon-check"></i>
-          <app-spinner *ngIf="true;"></app-spinner>
-        </span>
-        <img class="swiper-mini-image" src="{{backdropUrl + upcomingSlide.poster_path}}" alt="{{upcomingSlide.title}}">
-      </div>
-      <div class="swiper-poster-info">
-          <span class="title">{{upcomingSlide.original_title}}</span>
-          <span class="short-desc">
-            {{upcomingSlide.overview}}
-          </span>
-          <div class="vote-avage-wrapper">
-            <span class="vote-average">{{upcomingSlide.vote_average}}</span>
+<div class="swiper-grid">
+  <div class="pos-r">
+    <swiper class="swiper-container main" [config]="mainSliderConfig">
+      <ng-template swiperSlide *ngFor="let upcomingSlide of upcomingMoviesSlides">
+        <div class="swiper-image-wrapper" routerLink="/home/upcoming">
+          <img class="swiper-image"  src="{{backdropUrl + upcomingSlide.backdrop_path}}" alt="{{upcomingSlide.title}}">
+        </div>
+    
+        <div class="slider-bottom-section">
+          <div class="swiper-mini-poster">
+            <watchlist-toggle-btn></watchlist-toggle-btn>
+      
+            <div class="swiper-mini-img-wrappper" routerLink="/home/top-rated">
+              <img class="swiper-mini-image" src="{{backdropUrl + upcomingSlide.poster_path}}" alt="{{upcomingSlide.title}}">
+            </div>
           </div>
-      </div>
-    </a>
-  </ng-template>
-</swiper>
+          <div class="swiper-poster-info">
+            <span class="title">{{upcomingSlide.original_title}}</span>
+            <span class="short-desc">
+              {{upcomingSlide.overview}}
+            </span>
+            <div class="vote-avage-wrapper">
+              <span class="vote-average">{{upcomingSlide.vote_average}}</span>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+    
+    <div class="swiper-buttons button-prev sw-main" (click)="swiperSlidePrev()">
+      <span class="icon-arrow_back_ios"></span>
+    </div>
+    <div class="swiper-buttons button-next sw-main" (click)="swiperSlideNext()">
+      <span class="icon-arrow_forward_ios"></span>
+    </div>
+  </div>
+
+  <div class="c-up-next-slider">
+    <h2 class="title">Up Next</h2>
+    <swiper class="swiper-container secondary" [config]="upNextSliderConfig">
+      <ng-template swiperSlide *ngFor="let upcomingSlide of upcomingMoviesSlides">
+        <div class="swiper-content-wrapper">
+          <div class="swiper-image-wrapper" routerLink="/home/upcoming">
+            <img class="swiper-image" src="{{backdropUrl + upcomingSlide.poster_path}}" alt="{{upcomingSlide.title}}">
+          </div>
+          <span>{{upcomingSlide.title}}</span>
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+</div>

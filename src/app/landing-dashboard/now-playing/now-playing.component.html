@@ -1,7 +1,14 @@
-<div class="title-wrapper">
-  <h2 class="title">{{title}}</h2>
-  <a href="#" class="explore-all-link">Explore all</a>
+<div>
+    <ng-container *ngIf="isNowPlayingGridItems; else isNowPlayingGridSlider">
+        <movie-list></movie-list>
+    </ng-container>
+
+    <ng-template #isNowPlayingGridSlider>
+        <home-slider-items class="c-home-slider-items" 
+                           [movieType]="'now_playing'"
+                           [title]="title">
+        </home-slider-items>
+    </ng-template>
 </div>
-<home-slider-items class="c-home-slider-items" 
-                     [movieType]="'now_playing'"></home-slider-items>
+                      
 

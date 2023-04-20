@@ -1,6 +1,11 @@
-<div class="title-wrapper">
-  <h2 class="title">{{title}}</h2>
-  <a href="#" class="explore-all-link">Explore all</a>
+<div>
+    <ng-container *ngIf="isTopRatedGridItems; else isTopRatedSlider">
+        <movie-list></movie-list>
+    </ng-container>
+    
+    <ng-template #isTopRatedSlider>
+        <home-slider-items class="c-home-slider-items" 
+                           [movieType]="'top_rated'"
+                           [title]="title"></home-slider-items>
+    </ng-template>
 </div>
-<home-slider-items class="c-home-slider-items" 
-                     [movieType]="'top_rated'"></home-slider-items>

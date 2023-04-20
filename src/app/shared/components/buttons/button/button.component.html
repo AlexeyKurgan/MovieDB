@@ -1,0 +1,14 @@
+<button [class]="btnClasses"
+        [type]="'button'"
+        [disabled]="disabled"
+        [ngClass]="{'row-reverse': rowReverse === true, 'row': rowReverse === false}">
+        
+  <ng-container *ngIf="!isVisibleText && !isIconVisible; else defaultStructure">
+    <ng-content></ng-content>
+  </ng-container>
+
+  <ng-template #defaultStructure>
+    <i *ngIf="isIconVisible" [class]="iconClass"></i>
+    <span class="text" *ngIf="isVisibleText">{{text}}</span>    
+  </ng-template>  
+</button>

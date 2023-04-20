@@ -1,27 +1,18 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, filter, map, Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { CompareUrlService } from '../../shared/services/compare-url.service';
 
 @Component({
   selector: 'upcoming-main',
   templateUrl: './upcoming-main.component.html',
 })
 export class UpcomingMainComponent implements OnInit {
-  isUpcomingGridItems: boolean = false;
+  isUpcomingGridItems!: boolean;
   title: string = 'Upcoming Movies';
-  urlString: string = '/home/upcoming';
- 
-  constructor(private router: Router) {}
+
+  constructor(private ulrCompare: CompareUrlService) {}
 
   ngOnInit() {
-    this.compareUrl(this.urlString);
-  }
-
-  compareUrl(url:string):void {
-    if(this.router.url === url) {
-      this.isUpcomingGridItems = true;
-    }else {
-      this.isUpcomingGridItems = false
-    }
+    this.ulrCompare.compareUrl('/home/upcoming');
+    this.isUpcomingGridItems = this.ulrCompare.getCompareUrl()
   }
 }

@@ -1,30 +1,39 @@
 import { Observable, of } from 'rxjs';
-import { AfterViewInit, Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { MovieDataService } from './../../services/movies/movie-data.service';
 import { HomeSliderConfigService } from './../../services/slider-configs/home-slider-config.service';
 import { CommonPopupService } from '../../services/popup-service/common-popup.service';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'home-slider-items',
   templateUrl: './home-slider-items.component.html',
 })
-export class HomeSliderItemsComponent implements OnInit {
+export class HomeSliderItemsComponent implements OnInit, AfterViewInit {
+  @ViewChild('swiper') swiperRef!: ElementRef
+  swiper!:Swiper;
   @Input() movieType!: string;
+  @Input() title!: string;
+  homeItemsSlider: Swiper[] = [];
   movies: any[] = [];
   posterUrl: string = 'https://www.themoviedb.org/t/p/w342';
-  homeSliderConfig: any;
+  homeItemsSliderConfig: any;
   
   constructor(
       private moviesDataService: MovieDataService,
       private homeSliderSwiperConfig: HomeSliderConfigService,
       private popupService: CommonPopupService,
       ) { 
-      this.homeSliderConfig = this.homeSliderSwiperConfig.getConfig();
+        this.homeItemsSliderConfig = this.homeSliderSwiperConfig.getConfig();
   }
 
   ngOnInit() {
     this.getMovie();
-    this.homeSliderSwiperConfig.checkAndUpdateConfig();
+  }
+
+  ngAfterViewInit() { 
+    const swiperElement = this.swiperRef.nativeElement.previousSibling;
+    this.swiper = new Swiper(swiperElement, this.homeItemsSliderConfig);
   }
 
   getMovie() {
@@ -52,7 +61,7 @@ export class HomeSliderItemsComponent implements OnInit {
           break;
       }
     } catch (error: any) {
-      console.log('Error:', error.message)
+      console.error('Error:', error.message)
     }
   }
 
@@ -82,4 +91,10 @@ export class HomeSliderItemsComponent implements OnInit {
     this.popupService.componentBasedPopup();
   }
 
+  swiperSlidePrev() {
+    this.swiper.slidePrev()
+  }
+  swiperSlideNext() {
+    this.swiper.slideNext()
+  }
 }

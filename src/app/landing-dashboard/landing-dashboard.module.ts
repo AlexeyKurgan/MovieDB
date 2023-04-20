@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LandingDashboardRoutingModule } from './landing-dashboard.routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { LandingDashboardSharedModule } from './shared/landing-dashboard-shared.module';
 
 // components
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
@@ -20,6 +21,7 @@ import { TopRatedComponent } from './top-rated/top-rated.component';
     LandingDashboardRoutingModule,
     UpcomingModule,
     SharedModule,
+    LandingDashboardSharedModule,
   ],
   declarations: [
     HomeComponent,

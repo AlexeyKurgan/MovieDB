@@ -52,7 +52,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 // declarations components
 import { MainSliderComponent } from './components/main-slider/main-slider.component';
 import { HomeSliderItemsComponent } from './components/home-slider-items/home-slider-items.component';
-import { ButtonComponent } from './components/button/button.component';
+import { MdbButtonComponent } from './components/buttons/button/button.component';
+import { WatchlistButtonComponent } from './components/buttons/watchlist-toggle-btn/watchlist-toggle-btn.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { SearchComponent } from './components/search/search.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
@@ -84,7 +85,8 @@ import { CommonPopupComponent } from './services/popup-service/common-popup.comp
     MainLogoComponent,
     MainSliderComponent,
     HomeSliderItemsComponent,
-    ButtonComponent,
+    MdbButtonComponent,
+    WatchlistButtonComponent,
     PaginatorComponent,
     SearchComponent,
     UserMenuComponent,
@@ -95,17 +97,18 @@ import { CommonPopupComponent } from './services/popup-service/common-popup.comp
     // Modules
     CommonModule,
     MatSidenavModule,
-
+    SwiperModule,
     // Components
     MainSliderComponent,
     HomeSliderItemsComponent,
-    ButtonComponent,
+    MdbButtonComponent,
+    WatchlistButtonComponent,
     PaginatorComponent,
     SearchComponent,
     UserMenuComponent,
     MainLogoComponent,
     SpinnerComponent,
-    CommonPopupComponent
+    CommonPopupComponent,
   ]
 })
 export class SharedModule { }

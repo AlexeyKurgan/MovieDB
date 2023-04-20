@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import Swiper, { SwiperOptions } from 'swiper';
+import { SwiperOptions } from 'swiper';
 
 
 @Injectable({
@@ -14,10 +14,9 @@ export class HomeSliderConfigService {
     slidesPerView: 6,
     spaceBetween: 15,
     slidesPerGroup: 6,
-    navigation: true,    
-    pagination: {
-      clickable: false,
-      enabled: false
+    navigation: {
+      nextEl: '.button-next .sw-home',
+      prevEl: '.button-prev .sw-home',
     },
     centeredSlides: false, 
   }
