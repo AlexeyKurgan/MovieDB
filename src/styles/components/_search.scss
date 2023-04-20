@@ -1,12 +1,15 @@
 @import '../base/variables';
 @import '../utils/mixin';
 
-
 .search-wrapper {
     .mat-form-field {
-        min-width: 350px;
+        min-width: 550px;
         font-family: $main-font;
         font-size: .875em;
+
+        @media screen and (max-width: 1150px) {
+            min-width: 300px;
+        }
 
         &.mat-focused {
             .mat-form-field-label {

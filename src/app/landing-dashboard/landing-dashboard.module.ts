@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LandingDashboardRoutingModule } from './landing-dashboard.routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { LandingDashboardSharedModule } from './shared/landing-dashboard-shared.module';
 
 // components
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
@@ -11,34 +12,35 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { PrivacyPoliceComponent } from './privacy-police/privacy-police.component';
-import { UpcomingComponent } from './upcoming/upcoming.component';
-import { UpcomingCardComponent } from './upcoming/upcoming-card/upcoming-card.component';
+import { UpcomingModule } from './upcoming/upcoming.module';
+import { TopRatedComponent } from './top-rated/top-rated.component';
 
 @NgModule({
   imports: [
     RouterModule,
     LandingDashboardRoutingModule,
+    UpcomingModule,
     SharedModule,
+    LandingDashboardSharedModule,
   ],
   declarations: [
     HomeComponent,
     FavoriteListComponent,
     NowPlayingComponent,
     PopularMoviesComponent,
-    UpcomingComponent,
+    TopRatedComponent,
     NotFoundComponent,
     PrivacyPoliceComponent,
-    UpcomingCardComponent
   ],
   exports: [
     HomeComponent,
     FavoriteListComponent,
     NowPlayingComponent,
     PopularMoviesComponent,
-    UpcomingComponent,
+    TopRatedComponent,
     NotFoundComponent,
     PrivacyPoliceComponent,
-    UpcomingCardComponent
+    UpcomingModule,
   ]
 })
 export class LandingDashboardModule { }

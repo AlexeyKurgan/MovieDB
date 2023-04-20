@@ -1,7 +1,7 @@
 <div class="container">
     <app-header></app-header>
-    <app-sidebar></app-sidebar>
-    <main class="main-content">
+    <app-sidebar *ngIf="isHomePage"></app-sidebar>
+    <main [ngClass]="{'main-content': isHomePage, 'override-main-content': !isHomePage}">
         <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>

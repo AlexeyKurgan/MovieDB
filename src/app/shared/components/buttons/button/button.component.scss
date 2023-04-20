@@ -1,0 +1,123 @@
+@import '../../../../../styles/base/variables';
+@import '../../../../../styles/utils/mixin';
+@import '../../../../../styles/utils/functions';
+
+:host {
+    display: inline-block;
+    // width: auto;
+}
+
+/*<--- Main styles buttons  --->*/
+.btn {
+    @include flex-toolkit(inline-flex, center, center);
+    @include min-box(30px, 30px);
+    @include box-shadow(none);
+    @include border-radius(5px);
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    font-family: $secondary-font;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px;
+    transition: all .4s ease-in;
+    
+    // Primary light button
+    &-lt-primary {
+        background-color: $gold;
+        color: $black;
+
+        &:hover {
+            transition: all .4s ease-in;
+            color: $white;
+        }
+    }
+
+    // Secondary light button
+    &-lt-secondary {
+        background-color: $white;
+        color: $gold;
+        border: 1px solid $gold;
+
+        &:hover {
+            transition: all .4s ease-in;
+            color: $black;
+        }
+    }
+
+    // Primary dark button
+    &-drk-primary {
+        color: $light-blue;
+        background: rgba($light-black, .4);
+
+        &:hover {
+            background: rgba($light-blue, .1);
+            transition: all .4s ease;
+        }
+    }
+
+    // Primary dark button
+    &-drk-secondary {
+        color: $light-blue;
+        background: rgba($light-blue, .1);
+        
+        &:hover {
+            background: rgba($light-black, .4);
+            transition: all .4s ease;
+        }
+    }
+
+    // Without bg button
+
+    &-without-bg {
+        background: transparent;
+        border: none;
+        color: $light-blue;
+        transition: all .4s ease;
+
+        &:hover {
+            transition: all .4s ease;
+            color: $white;
+            background: rgba($light-black, .4);
+        }
+    }
+
+    &_small {
+        max-width: 110px;
+    }
+}
+
+.text {
+    margin: 0 5px;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+/*<--- Override styles buttons  --->*/
+
+.swiper-rate-button {
+    padding: 8px;
+    max-height: 32px;
+}
+
+.swiper-btn-watchlist,
+.swiper-more-info-btn,
+.swiper-trailer-btn {
+    padding: 8px 10px;
+    font-size: 14px;
+
+    .icon-play_arrow {
+        font-size: 18px;
+    }
+
+    .icon-plus {
+        font-size: 13px;
+    }
+
+    .icon-notification {
+        font-size: 21px;
+    }
+
+}

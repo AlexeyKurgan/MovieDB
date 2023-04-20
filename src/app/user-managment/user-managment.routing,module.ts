@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserManagmentComponent } from './components/user-managment/user-managment.component';
 
 // components
 const routes: Routes = [
+  // temporary solution
   {
     path: '',
-    pathMatch: "full",
-    redirectTo: 'login'
-  },
-  {
-    path: 'login',
-    loadChildren: ()=> import('./user-account/user-account.module').then(m => m.UserAccountModule)
+    component: UserManagmentComponent
   },
   {
     path: 'account-settings',

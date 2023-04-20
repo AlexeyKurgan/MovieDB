@@ -1,3 +1,12 @@
-<p>
-  popular-movies works!
-</p>
+<div>
+  <ng-container *ngIf="isPopularGridItems; else isPopularGridSlider">
+    <movie-list></movie-list>
+  </ng-container>
+  
+  <ng-template #isPopularGridSlider>
+    <home-slider-items class="c-home-slider-items" 
+                       [movieType]="'popular'"
+                       [title]="title">
+    </home-slider-items>
+  </ng-template>
+</div>

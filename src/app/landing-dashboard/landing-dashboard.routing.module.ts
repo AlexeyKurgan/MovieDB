@@ -1,3 +1,4 @@
+import { TopRatedComponent } from './top-rated/top-rated.component';
 // modules
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
@@ -9,16 +10,24 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { PrivacyPoliceComponent } from './privacy-police/privacy-police.component';
-import { UpcomingComponent } from './upcoming/upcoming.component';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
-  {path:'favorite-list', component: FavoriteListComponent},
-  {path:'now-playing', component: NowPlayingComponent},
-  {path:'popular', component: PopularMoviesComponent},
-  {path:'upcoming', component: UpcomingComponent},
-  {path:'privacy-police', component: PrivacyPoliceComponent},
-  {path:'**', component: NotFoundComponent},
+  {
+    path: '',
+    children: [
+        { path: '', component: HomeComponent },
+        { path: 'favorite-list', component: FavoriteListComponent },
+        { path: 'now-playing', component: NowPlayingComponent },
+        { path: 'popular', component: PopularMoviesComponent },
+        { path: 'top-rated', component: TopRatedComponent },
+        {
+          path: 'upcoming',
+          loadChildren: ()=> import('./upcoming/upcoming.module').then(m => m.UpcomingModule)
+        },
+        { path: 'privacy-police', component: PrivacyPoliceComponent },
+        { path: '**', component: NotFoundComponent },
+    ],
+},
 ];
 
 @NgModule({

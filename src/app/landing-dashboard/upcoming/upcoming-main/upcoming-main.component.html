@@ -1,0 +1,11 @@
+<section class="c-upcoming-wrapper">
+  <ng-container *ngIf="isUpcomingGridItems; else isUpcomingSlider">
+    <movie-list></movie-list>
+  </ng-container>
+
+  <ng-template #isUpcomingSlider>
+    <home-slider-items class="c-home-slider-items" 
+                       [movieType]="'upcoming'" 
+                       [title]="title"></home-slider-items>
+  </ng-template>
+</section>

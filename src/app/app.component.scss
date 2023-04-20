@@ -2,5 +2,9 @@
 @import '../styles/utils/mixin';
 
 .main-content {
-    padding: 80px 0 80px 40px;
+    padding: 70px 0 70px 40px;
+}
+
+.override-main-content {
+    padding: 80px 0;
 }

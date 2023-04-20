@@ -1,0 +1,398 @@
+@import '../base/variables';
+@import '../utils/mixin';
+
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+/*-- GLOBAL STYLES --*/
+.swiper-buttons {
+    @include flex-toolkit(flex, center, center);
+    @include box(50px, 70px);
+    @include position(absolute, 50%, auto, auto, auto);
+    @include border-radius(5px);
+    transform: translateY(-50%);
+    border: 1px solid $white;
+    background: rgba($light-black, .5);
+    color: $white;
+    transition: all .4s ease;
+    visibility: visible;
+    cursor: pointer;
+
+    .icon-arrow_back_ios,
+    .icon-arrow_forward_ios {
+        font-size: 1.5em;
+    }
+
+    &:hover {
+        color: $gold;
+        transition: all .4s ease;
+    }
+
+    &.button-prev {
+        left: 20px;
+    }
+
+    &.button-next {
+        right: 20px;
+    }
+}
+
+.swiper-grid {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.swiper {
+    height: 100%;
+    margin: 0 15px;
+    position: relative;
+    z-index: 0;
+}
+
+.swiper-wrapper {
+    width: auto;
+    @include box-sizing(border-box);
+}
+
+.swiper-image {
+    @include box(100%, 100%);
+}
+
+.swiper-mini-image {
+    @include box(100%, 100%);
+    object-fit: cover;
+    position: relative;
+}
+/*-- GLOBAL STYLES --*/
+
+/*------------------------*/
+
+/*-- MAIN SLIDER STYLES --*/
+.c-main-slider {
+    overflow: hidden;
+    min-height: 580px;
+    max-height: 580px;
+    
+    .swiper {
+        @include border-radius(10px);
+    }
+    
+    .swiper-slide {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+    }
+    
+    .swiper-image-wrapper {
+        cursor: pointer;
+        @include position(absolute, 0, auto, auto, 0);
+        z-index: 0;
+    }
+
+    .slider-bottom-section {
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+        pointer-events: none;
+        margin-bottom: 55px;
+    }
+    
+    .swiper-mini-poster {
+        transform: scale(1);
+        pointer-events: auto;
+        cursor: pointer;
+        transition: all .4s ease;
+        @include box-shadow(0 -1px 7px 3px rgba($light-black, .8));
+        border: 1px solid $light-black;
+        
+        &::after {
+            @include position(absolute, 0, auto, auto, 0);
+            @include box(100%, 100%);
+            background-color: rgba($light-black, .2);
+            transition: background-color .4s ease;
+        }
+    
+        &:hover {
+            transition: all .4s ease;
+            transform: scale(1.1);
+        }
+    
+        .spinner {
+            @include box(25px, 25px);
+            @include position(absolute, 8px, auto, auto, 5px);
+    
+            div {
+                margin: 0;
+                border-width: 3px;
+            }
+        }
+    }
+
+    .swiper-mini-img-wrappper {
+        @include box(100%, 100%);
+        @include box(175px, 255px);
+        z-index: 10;
+    }
+         
+    .swiper-poster-info {
+        width: 50%;
+        pointer-events: auto;
+        font-size: 16px;
+        color: $white;
+        padding: 10px;
+        border-radius: 5px;
+        background: rgba($light-black, .6);
+        overflow: hidden;
+        position: relative;
+    
+        .title {
+            display: block;
+            font-size: 30px;
+            margin-right: 50px;
+            font-weight: 600;
+            padding: 0;
+            text-transform: capitalize;
+        }
+    
+        .flex-container {
+            @include flex-row(space-between, center);
+        }
+    
+        .short-desc {
+            display: block;
+            max-height: 187px;
+            width: 90%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+        }
+    
+        .vote-avage-wrapper {
+            @include min-box(46px, 46px);
+            @include position(absolute, 16px, 13px, auto, auto);
+            @include flex-row(center, center);
+            @include border-radius(50%);
+            font-size: 18px;
+            padding: 10px 12px;
+            background: $gold;
+        }
+    
+        .vote-average {
+            font-weight: 600;
+        }
+    }
+    
+    .c-up-next-slider {
+
+        .title {
+            margin: 0 15px 10px 0;
+            font-size: 20px;
+        }
+    
+        .swiper {
+            margin: 0 15px 15px 0;
+            max-height: 541px;
+        }
+    
+        .swiper-slide {
+            overflow: hidden;
+            transition: all .4s ease;
+            cursor: pointer;
+    
+            &:hover {
+                color: $gold;
+                transition: all .4s ease;
+            }
+        }
+    
+        .swiper-content-wrapper {
+            display: flex;
+            align-items: flex-start;
+            height: 100%;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba($black, .1);
+
+            span {
+                font-size: 19px;
+            }
+        }
+    
+        .swiper-image-wrapper {
+            min-width: 100px;
+            width: 100px;
+            position: relative;
+        }
+    
+        .swiper-image {
+            object-fit: contain;
+        }
+        
+    }
+}
+/*-- MAIN SLIDER STYLES --*/
+
+/*------------------------*/
+
+/*-- HOME SLIDER ITEMS STYLES --*/
+.c-home-slider-items {
+    
+    .swiper {
+        margin: 10px 15px;
+    }
+    
+    .swiper-slide {
+        position: relative;
+    }
+
+    .swiper-slide-poster {
+        max-height: 315px;
+        height: 315px;
+        background-clip: padding-box;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .swiper-slide-link {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba($light-black, 0);
+            transition: all .4s ease;
+        }
+
+        &:hover {
+            &::after {
+                transition: all .4s ease;
+                background-color: rgba($light-black, .2555);
+            }
+        }
+    }
+    
+    .swiper-image {
+        position: absolute;
+        z-index: -1;
+    }
+
+    .swiper-slide-content {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 8px;
+        background-color: rgba($white, .1);
+    }
+
+    .spinner {
+        @include box(25px, 25px);
+        @include position(absolute, 8px, auto, auto, 5px);
+
+        div {
+            margin: 0;
+            border-width: 3px;
+        }
+    }
+
+    .swiper-rating {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+    
+    .swiper-rating-star {
+        word-spacing: 7px;
+
+        .icon-star-full {
+            color: $gold;
+        }
+    }
+
+    .swiper-meta {
+        display: flex;
+        justify-content: space-between;
+        margin: 4px 10px 0 0;
+    }
+
+    .swiper-original-lang {
+        text-transform: capitalize;
+    }
+
+    .swiper-poster-title {
+        display: block;
+        font-size: 17px;
+        color: $white;
+        height: 3em;
+        max-height: 3em;
+        margin: 4px 0;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        cursor: pointer;
+
+        &:hover {
+            color: $gold;
+        }
+    }
+
+    .swiper-other-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        gap: 10px;
+    }
+ 
+    .swiper-poster-info {
+        width: 50%;
+        @include position(absolute, auto, 12%, 85px, auto);
+        font-size: 25px;
+        color: $white;
+    
+        .title {
+            font-size: 55px;
+            line-height: 48px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    
+        .flex-container {
+            @include flex-row(space-between, center);
+        }
+    
+        .short-desc {
+            margin-right: 20px;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+        }
+    
+        .vote-avage-wrapper {
+            @include flex-row(center, center);
+            font-size: 18px;
+            padding: 10px 4px;
+            background: $gold;
+            @include border-radius(50%);
+        }
+    
+        .vote-average {
+            font-weight: 600;
+        }
+    }
+    
+}
+/*-- HOME SLIDER ITEMS STYLES --*/
