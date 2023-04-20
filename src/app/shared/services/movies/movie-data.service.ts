@@ -33,7 +33,7 @@ export class MovieDataService {
   }
 
   // get url
-  getTypeMoviesUrl(movieType:string) {
+  private getTypeMoviesUrl(movieType:string) {
     const url = `${this.baseUrl}${movieType}?api_key=${this.apiKey}&language=en-US`;
     return this.http.get<any>(url);
   }

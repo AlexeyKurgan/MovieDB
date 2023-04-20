@@ -1,20 +1,11 @@
-<section class="c-upcoming-wrapper" [class.upc-all-layout]="isUpcomingGridItems">
-  <div class="title-wrapper">
-    <h2 class="title">{{title}}</h2>
-    <a href="#" class="explore-all-link">Explore all</a>
-  </div>
-  
+<section class="c-upcoming-wrapper">
   <ng-container *ngIf="isUpcomingGridItems; else isUpcomingSlider">
-    <upcoming-all></upcoming-all>
-    <!-- <home-slider-items class="c-home-slider-items" 
-                       [movieType]="'upcoming'"
-                       [pageTitle]="title"></home-slider-items> -->
+    <movie-list></movie-list>
   </ng-container>
 
   <ng-template #isUpcomingSlider>
-    <!-- <upcoming-preview class="c-upcoming-preview"></upcoming-preview> -->
     <home-slider-items class="c-home-slider-items" 
-                       [movieType]="'upcoming'"></home-slider-items>
+                       [movieType]="'upcoming'" 
+                       [title]="title"></home-slider-items>
   </ng-template>
-
 </section>

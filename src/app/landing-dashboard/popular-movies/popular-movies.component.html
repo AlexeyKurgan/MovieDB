@@ -1,10 +1,12 @@
-<div class="c-popular-movies">
-  <div class="title-wrapper">
-    <h2 class="title">{{title}}</h2>
-    <a href="#" class="explore-all-link">Explore all</a>
-  </div>
-  <home-slider-items class="c-home-slider-items" 
-                     [movieType]="'popular'">
-  </home-slider-items>
+<div>
+  <ng-container *ngIf="isPopularGridItems; else isPopularGridSlider">
+    <movie-list></movie-list>
+  </ng-container>
+  
+  <ng-template #isPopularGridSlider>
+    <home-slider-items class="c-home-slider-items" 
+                       [movieType]="'popular'"
+                       [title]="title">
+    </home-slider-items>
+  </ng-template>
 </div>
-

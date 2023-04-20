@@ -1,0 +1,147 @@
+@import '../../../../../styles/base/variables';
+@import '../../../../../styles/utils/mixin';
+
+.movie-list {
+    padding: 15px;
+}
+
+.movie-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.title-wrapper {
+    margin: 0;
+}
+
+.movie-counts {
+    display: inline-block;
+    font-size: 17px;
+    margin-left: 2em;
+}
+
+.controls-list {
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.controls-item {
+    background-color: $gold;
+    @include max-box(28px, 28px);
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.show-more-btn-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.mdb-icon {
+    font-size: 28px;
+    color: $black;
+}
+
+.movie-list__content {}
+
+.movie-card {
+    background-color: rgba($white, .1);
+    margin: 10px 10px 10px 0;
+    @include border-top-radius(5px);
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+
+        .upcoming-card__layout,
+        .upcoming-card__desc {
+            color: $gold;
+            transition: color .3s ease-in;
+        }
+    }
+
+    &__img {
+        @include box(100%, 134px);
+        @include border-top-radius(5px);
+        position: relative;
+        overflow: hidden;
+
+        img {
+            @include position(absolute, 0, auto, auto, 0);
+            @include box(100%, 100%);
+            object-fit: cover;
+        }
+    }
+
+    &__layout {
+        display: flex;
+        align-items: baseline;
+        padding: 5px 10px;
+        transition: color .3s ease-in;
+
+        .title {
+            font-size: 1em;
+            padding: 0;
+            margin: 0;
+            margin-right: 10px;
+        }
+    }
+
+    &__desc {
+        font-size: 12px;
+        padding: 0 10px 10px 10px;
+        transition: color .3s ease-in;
+
+        p {
+            margin: 0;
+            padding: 0;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+
+    watchlist-toggle-btn {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+    }
+}
+
+.card-wrapper {
+    display: grid;
+    margin-bottom: 20px;
+    gap: 20px;
+
+    &.default-columns {
+        grid-template-columns: repeat(4, 1fr);
+
+        .movie-card__img {
+            height: 350px;
+        }
+    }
+
+    &.multi-columns {
+        grid-template-columns: repeat(6, 1fr);
+
+        .movie-card__img {
+            height: 270px;
+        }
+    }
+}
+
+.watchlist-btn-container {
+    padding: 8px;
+}
+
+.action-controls {
+    display: flex;
+    padding: 8px;
+    gap: 10px;
+}

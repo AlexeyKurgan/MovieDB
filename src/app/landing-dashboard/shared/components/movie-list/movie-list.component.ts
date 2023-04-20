@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'upcoming-all',
-  templateUrl: './upcoming-all.component.html',
-  styleUrls: ['./upcoming-all.component.scss']
+  selector: 'movie-list',
+  templateUrl: './movie-list.component.html',
+  styleUrls: ['./movie-list.component.scss']
 })
-export class UpcomingAllComponent implements OnInit {
+export class MovieListComponent implements OnInit {
   isGridSwitching: boolean = false;
 
   constructor() { }
@@ -16,4 +16,5 @@ export class UpcomingAllComponent implements OnInit {
   getColumnsGrid () {
     this.isGridSwitching = !this.isGridSwitching;
   }
+
 }

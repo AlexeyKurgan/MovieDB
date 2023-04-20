@@ -1,0 +1,79 @@
+<div class="movie-list">
+  <div class="movie-list__header">
+    <div class="title-wrapper">
+      <h2 class="title">Test</h2>
+      <span class="movie-counts">20 items</span>
+    </div>
+    <ul class="controls-list">
+      <li (click)="getColumnsGrid()" *ngIf="isGridSwitching else twoColumnsGrid" class="controls-item">
+        <span class="mdb-icon icon-grid"></span>
+      </li>
+      <ng-template #twoColumnsGrid>
+        <li (click)="getColumnsGrid()" class="controls-item">
+          <span class="mdb-icon icon-grid1"></span>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+
+  <div class="movie-list__content">
+    <div class="card-wrapper" [ngClass]="{'multi-columns': !isGridSwitching, 'default-columns': isGridSwitching}">
+      <div class="movie-card" *ngFor="let cardItem of [1,2,3,4,5,6,7,8,9,10]; index as i;">
+        <div class="movie-card__img">
+          <img src="../../../../images/slider-poster.jpg" alt="mad max">
+        </div>
+      
+        <div class="movie-card__layout">
+          <div class="title">
+            <span>Mad Max</span>
+          </div>
+        </div>
+      
+        <div class="movie-card__desc">
+          <p>
+            A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. 
+            Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.
+          </p>
+        </div>
+
+        <div class="watchlist-btn-container">
+          <mdb-button class="w-100"
+                      btnClasses="btn btn-drk-primary swiper-btn-watchlist"
+                      [type]="'button'"
+                      [isIconVisible]="true"
+                      [isVisibleText]="true"
+                      [text]="'Watchlist'"
+                      [iconClass]="'icon-plus'">
+          </mdb-button>
+        </div>
+
+        <div class="action-controls">
+            <mdb-button class="w-75"
+                        btnClasses="btn btn-drk-primary swiper-trailer-btn"
+                        [type]="'button'"
+                        [isIconVisible]="true"
+                        [isVisibleText]="true"
+                        [text]="'Trailer'"
+                        [iconClass]="'icon-play_arrow'">
+            </mdb-button>
+  
+            <mdb-button class="w-25"
+                        btnClasses="btn btn-drk-primary swiper-more-info-btn"
+                        [type]="'button'"
+                        [isIconVisible]="true"
+                        [iconClass]="'icon-notification'">
+            </mdb-button>
+        </div>
+        <watchlist-toggle-btn></watchlist-toggle-btn>
+      </div>
+  </div>
+  </div>
+  <div class="show-more-btn-wrap">
+    <mdb-button btnClasses="btn btn-drk-primary" 
+                [type]="'button'" 
+                [disabled]="false" 
+                [isVisibleText]="true"
+                [text]="'Show more'">
+    </mdb-button>
+  </div>
+</div>
